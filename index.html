@@ -335,9 +335,12 @@ $('send').onclick=function(){
  if(!n||!ph||!a){$('ms').textContent=t('من فضلك اكتب الاسم والموبايل والعنوان','Please enter name, phone and address');return}
  var tot=0,lines=ids.map(function(p){var q=cart[p[0]];tot+=q*PRICE;return '• '+p[1]+' · '+p[2]+' × '+q+' = '+q*PRICE+' ج.م'});
  var text='🛒 أوردر شراء جديد - مون للعطور\n\n'+lines.join('\n')+'\n\nالإجمالي: '+tot+' ج.م\n\nالاسم: '+n+'\nالموبايل: '+ph+'\nالعنوان: '+a;
- window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(text),'_blank');
- if(EMAIL){try{fetch('https://formsubmit.co/ajax/'+EMAIL,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({_subject:'أوردر شراء جديد - Moon Perfumes',_template:'box',الطلب:lines.join(' | '),الإجمالي:tot+' ج.م',الاسم:n,الموبايل:ph,العنوان:a})}).catch(function(){})}catch(e){}}
- cart={};save();render();$('ms').textContent=t('تم تجهيز الأوردر، كمّل الإرسال من واتساب ✅','Order ready, finish sending in WhatsApp ✅');};
+ var wa='https://wa.me/'+WA+'?text='+encodeURIComponent(text),btn=$('send');
+ btn.disabled=true;$('ms').textContent=t('جاري إرسال الأوردر...','Sending your order...');
+ var mail=Promise.resolve();
+ if(EMAIL){try{mail=fetch('https://formsubmit.co/ajax/'+EMAIL,{method:'POST',keepalive:true,headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({_subject:'أوردر شراء جديد - Moon Perfumes',_template:'table',name:n,phone:ph,address:a,order:lines.join(' | '),total:tot+' EGP',message:text})}).catch(function(){})}catch(e){}}
+ var done=false,go=function(){if(done)return;done=true;cart={};save();render();btn.disabled=false;$('ms').textContent=t('تم تجهيز الأوردر، كمّل الإرسال من واتساب ✅','Order ready, finish sending in WhatsApp ✅');location.href=wa};
+ mail.then(go);setTimeout(go,4000);};
 document.getElementById('bundle').onclick=function(){P.forEach(function(p){cart[p[0]]=(cart[p[0]]||0)+1});save();render();$('cp').classList.add('on')};
 new MutationObserver(render).observe(R,{attributes:true,attributeFilter:['lang']});
 render();
