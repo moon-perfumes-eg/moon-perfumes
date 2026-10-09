@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moon Perfumes | عطور مون</title>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Aref+Ruqaa:wght@400;700&family=Noto+Sans+Egyptian+Hieroglyphs&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#090909;--gold:#c9a227;--gold-light:#e4c65a;--border:rgba(201,162,39,.25)}
+body{font-family:Arial,Tahoma,sans-serif;background:var(--black);color:#fff;line-height:1.8}
+button,input,textarea,select{font-family:inherit}
+a{color:inherit;text-decoration:none}
+header{position:sticky;top:0;z-index:1000;background:rgba(9,9,9,.96);border-bottom:1px solid var(--border);backdrop-filter:blur(10px)}
+.navbar{max-width:1200px;margin:auto;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.nav-right{display:flex;align-items:center;gap:10px}
+.lang-select{background:#141414;color:#fff;border:1px solid var(--border);border-radius:8px;padding:8px 10px;cursor:pointer;font-size:14px;outline:none}
+.lang-select:focus{border-color:var(--gold)}
+nav{display:flex;gap:25px;align-items:center}
+nav button{background:none;border:none;color:#fff;cursor:pointer;font-size:15px;transition:.3s}
+nav button:hover{color:var(--gold-light)}
+.cart-button{position:relative;background:transparent;border:1px solid var(--gold);color:var(--gold);padding:8px 15px;border-radius:8px;cursor:pointer}
+.cart-count{position:absolute;top:-9px;inset-inline-end:-9px;width:22px;height:22px;background:var(--gold);color:#000;border-radius:50%;font-size:12px;display:flex;align-items:center;justify-content:center;font-weight:bold}
+.view{display:none}.view.active{display:block}
+.hero{min-height:560px;display:flex;align-items:center;justify-content:center;text-align:center;padding:80px 20px;background:radial-gradient(circle at center,rgba(9,9,9,.55),rgba(9,9,9,.9) 75%),var(--sheet,none) center/cover no-repeat,#090909}
+.wordmark{display:flex;flex-direction:column;align-items:center;margin-bottom:12px}
+.wm-hiero{font-family:'Noto Sans Egyptian Hieroglyphs','Segoe UI Historic',serif;color:var(--gold);font-size:clamp(30px,5vw,46px);letter-spacing:14px;line-height:1.3}
+.wm-en{font-family:'Playfair Display',Georgia,serif;font-size:clamp(64px,12vw,125px);color:var(--gold);line-height:1;font-weight:500;letter-spacing:2px}
+.wm-ar{font-family:'Aref Ruqaa','Reem Kufi',Tahoma,serif;font-size:clamp(52px,9vw,95px);color:var(--gold);line-height:1.15}
+.wm-sub{display:flex;gap:20px;align-items:center;color:var(--gold-light);margin-top:6px}
+.wm-sub::before,.wm-sub::after{content:"";width:50px;height:1px;background:var(--gold)}
+.wm-sub .p{font-family:'Playfair Display',Georgia,serif;letter-spacing:9px;font-size:16px}
+.wm-sub .a{font-family:'Aref Ruqaa',Tahoma,serif;font-size:22px}
+.logo{display:flex;align-items:center;gap:8px;font-weight:bold;color:var(--gold);cursor:pointer}
+.logo .lg-h{font-family:'Noto Sans Egyptian Hieroglyphs','Segoe UI Historic',serif;font-size:22px}
+.logo .lg-e{font-family:'Playfair Display',Georgia,serif;font-size:26px;font-weight:600}
+.logo .lg-a{font-family:'Aref Ruqaa',Tahoma,serif;font-size:24px}
+.socials{display:flex;gap:14px;justify-content:center;margin-top:22px}
+.socials a{width:46px;height:46px;border:1px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);transition:.3s}
+.socials a:hover{background:var(--gold);color:#000;transform:translateY(-3px)}
+.socials svg{width:22px;height:22px}
+.address{margin-top:22px;color:#ddd}
+.address strong{color:var(--gold)}
+.subnav{border-top:1px solid var(--border);background:rgba(15,15,15,.98);display:flex;gap:10px;justify-content:center;align-items:center;padding:9px 16px;overflow-x:auto;white-space:nowrap}
+.subnav span{color:var(--gold);font-size:13px;font-weight:bold;margin-inline-end:6px}
+.subnav button{background:transparent;border:1px solid var(--border);color:#fff;padding:5px 14px;border-radius:20px;cursor:pointer;font-size:13px;transition:.3s}
+.subnav button:hover{border-color:var(--gold);color:var(--gold-light)}
+.about{max-width:1000px;margin:0 auto;padding:70px 20px 10px;display:grid;grid-template-columns:320px 1fr;gap:45px;align-items:center}
+.about-logo{background:#f8efdc;border-radius:16px;padding:12px;border:1px solid var(--gold);box-shadow:0 15px 40px rgba(201,162,39,.15)}
+.about-logo img{width:100%;display:block;border-radius:8px}
+.about-text h2{color:var(--gold);font-size:32px;margin-bottom:12px}
+.about-text p{color:#ccc;font-size:16px;margin-bottom:10px}
+@media(max-width:800px){.about{grid-template-columns:1fr;text-align:center}.about-logo{max-width:300px;margin:auto}}
+.showcase{max-width:1100px;margin:0 auto;padding:10px 20px 0}
+.showcase img{width:100%;border-radius:16px;border:1px solid var(--border);box-shadow:0 20px 60px rgba(201,162,39,.15);display:block}
+.hero-content{max-width:800px}
+.hero p{color:#ccc;max-width:600px;margin:auto;font-size:17px}
+.gold-button{display:inline-block;margin-top:30px;padding:13px 30px;background:var(--gold);color:#000;border:none;border-radius:8px;font-weight:bold;cursor:pointer;transition:.3s;font-size:15px}
+.gold-button:hover{background:var(--gold-light);transform:translateY(-2px)}
+.gold-button:disabled{opacity:.6;cursor:wait;transform:none}
+.section{max-width:1200px;margin:auto;padding:70px 20px}
+.section-title{text-align:center;color:var(--gold);font-size:35px;margin-bottom:45px}
+.products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:25px}
+.product-card{background:linear-gradient(145deg,#151515,#0c0c0c);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:.3s}
+.product-card:hover{transform:translateY(-6px);border-color:var(--gold);box-shadow:0 15px 40px rgba(201,162,39,.12)}
+.crop{width:100%;height:100%;background-repeat:no-repeat;background-size:300% 200%}
+.product-image{aspect-ratio:352/496;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle,rgba(201,162,39,.13),transparent 55%),#101010;cursor:pointer;position:relative;overflow:hidden}
+.product-image img,.details-image img{width:100%;height:100%;object-fit:cover}
+.image-placeholder{width:150px;height:220px;border:2px solid var(--gold);border-radius:45px 45px 30px 30px;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:20px;position:relative}
+.image-placeholder::before{content:"";position:absolute;top:-35px;width:70px;height:38px;border:2px solid var(--gold);border-bottom:none;border-radius:10px 10px 0 0}
+.product-info{padding:22px}
+.product-name{font-size:25px;color:var(--gold);margin-bottom:5px}
+.product-arabic{color:#ccc;margin-bottom:10px}
+.product-price{font-size:22px;font-weight:bold;margin-bottom:12px}
+.product-description{color:#aaa;font-size:14px;min-height:50px;margin-bottom:18px}
+.product-actions{display:flex;gap:10px}
+.details-btn,.add-btn{flex:1;padding:11px;border-radius:7px;cursor:pointer;font-weight:bold}
+.details-btn{background:transparent;color:var(--gold);border:1px solid var(--gold)}
+.add-btn{background:var(--gold);color:#000;border:1px solid var(--gold)}
+.details-container{max-width:1100px;margin:auto;padding:60px 20px}
+.back-btn{background:transparent;border:1px solid #555;color:#fff;padding:9px 18px;border-radius:7px;cursor:pointer;margin-bottom:30px}
+.product-details{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start}
+.details-image{aspect-ratio:352/496;width:100%;max-width:440px;margin:auto;border:1px solid var(--border);border-radius:15px;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle,rgba(201,162,39,.13),transparent 55%),#101010;overflow:hidden}
+.details-info h1{color:var(--gold);font-size:45px;margin-bottom:5px}
+.details-info h2{color:#ccc;font-weight:normal;margin-bottom:15px}
+.details-price{font-size:28px;font-weight:bold;margin-bottom:20px}
+.details-description{color:#bbb;margin-bottom:25px}
+.notes-box{border:1px solid var(--border);border-radius:10px;margin-bottom:25px;overflow:hidden}
+.note-row{padding:14px 18px;border-bottom:1px solid rgba(255,255,255,.08)}
+.note-row:last-child{border-bottom:none}
+.note-row strong{color:var(--gold);display:block;margin-bottom:3px}
+.quantity-control{display:flex;align-items:center;gap:15px;margin:20px 0}
+.quantity-control button{width:38px;height:38px;background:transparent;color:var(--gold);border:1px solid var(--gold);border-radius:6px;cursor:pointer;font-size:20px}
+.quantity-control span{min-width:35px;text-align:center;font-size:20px}
+.cart-container,.checkout-container,.contact-container{max-width:900px;margin:auto;padding:60px 20px}
+.cart-item{display:flex;align-items:center;gap:20px;padding:20px 0;border-bottom:1px solid #292929}
+.cart-item-image{width:90px;height:110px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.cart-item-image img{width:100%;height:100%;object-fit:cover}
+.mini-bottle{width:35px;height:60px;border:1px solid var(--gold);border-radius:15px}
+.cart-item-info{flex:1}
+.cart-item-info h3{color:var(--gold)}
+.cart-quantity{display:flex;align-items:center;gap:8px}
+.cart-quantity button{width:30px;height:30px;background:transparent;color:#fff;border:1px solid #555;cursor:pointer;border-radius:5px}
+.remove-btn{background:transparent;color:#d66;border:none;cursor:pointer}
+.cart-total{text-align:end;font-size:25px;color:var(--gold);font-weight:bold;padding:30px 0}
+.empty-cart{text-align:center;color:#aaa;padding:80px 20px}
+.form-group{margin-bottom:18px}
+.form-group label{display:block;margin-bottom:7px;color:var(--gold)}
+.form-group input,.form-group textarea{width:100%;background:#141414;border:1px solid #333;color:#fff;border-radius:7px;padding:13px;outline:none;font-size:15px}
+.form-group input:focus,.form-group textarea:focus{border-color:var(--gold)}
+textarea{min-height:120px;resize:vertical}
+.checkout-summary{background:#141414;padding:20px;border-radius:10px;border:1px solid var(--border);margin:25px 0}
+.contact-box{background:#141414;border:1px solid var(--border);padding:30px;border-radius:12px;text-align:center}
+.wa-link{display:inline-block;margin-top:20px;padding:12px 28px;background:#25d366;color:#000;border-radius:8px;font-weight:bold}
+footer{border-top:1px solid var(--border);padding:30px 20px;text-align:center;color:#888;margin-top:50px}
+footer strong{color:var(--gold)}
+.visits{margin-top:20px;font-size:22px;font-weight:bold;color:#fff}
+.toast{position:fixed;bottom:25px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--gold);color:#000;padding:12px 24px;border-radius:8px;font-weight:bold;z-index:3000;opacity:0;transition:.35s;max-width:90%;text-align:center}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+.success-box{text-align:center;padding:60px 20px}
+.success-box h2{color:var(--gold);margin-bottom:12px}
+.news-page{max-width:850px;margin:auto;padding:50px 20px}
+.news-tag{display:inline-block;background:var(--gold);color:#000;font-weight:bold;font-size:13px;padding:3px 14px;border-radius:20px;margin-bottom:14px}
+.news-title{color:var(--gold);font-size:clamp(26px,5vw,40px);line-height:1.5;margin-bottom:10px}
+.news-meta{color:#888;font-size:14px;margin-bottom:25px}
+.news-hero{width:100%;border-radius:16px;border:1px solid var(--border);box-shadow:0 20px 60px rgba(201,162,39,.15);display:block;margin-bottom:8px}
+.news-caption{color:#888;font-size:13px;text-align:center;margin-bottom:28px}
+.news-body p{color:#ddd;font-size:17px;margin-bottom:18px;line-height:2}
+.news-body h3{color:var(--gold);margin:30px 0 12px;font-size:24px}
+.news-body .news-lead{font-size:19px;color:#fff;border-inline-start:4px solid var(--gold);padding-inline-start:16px}
+.news-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:15px 0 25px}
+.news-list div{background:#141414;border:1px solid var(--border);border-radius:10px;padding:12px 16px}
+.news-list strong{color:var(--gold);display:block}
+.news-list span{color:#bbb;font-size:14px;line-height:1.7;display:block}
+.news-points{list-style:none;margin:10px 0 22px}
+.news-points li{color:#ddd;font-size:16px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.news-points li::before{content:"✦ ";color:var(--gold)}
+.engage{display:flex;flex-wrap:wrap;gap:10px;align-items:center;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:16px 0;margin:30px 0}
+.eng-btn{background:transparent;border:1px solid var(--gold);color:var(--gold);padding:8px 16px;border-radius:22px;cursor:pointer;font-size:14px;transition:.3s;display:inline-block}
+.eng-btn:hover{background:var(--gold);color:#000}
+.eng-btn.liked{background:var(--gold);color:#000}
+.share-label{color:#999;font-size:14px;margin-inline-start:auto}
+.comments-box h3{color:var(--gold);margin-bottom:16px}
+.comment-form{display:grid;gap:10px;margin-bottom:22px}
+.comment-form input,.comment-form textarea{background:#141414;border:1px solid #333;color:#fff;border-radius:7px;padding:12px;font-size:15px;outline:none;width:100%}
+.comment-form input:focus,.comment-form textarea:focus{border-color:var(--gold)}
+.comment-form textarea{min-height:90px}
+.comment-form .gold-button{margin-top:0;justify-self:start}
+.comment{background:#141414;border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:12px}
+.comment-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:4px}
+.comment-head strong{color:var(--gold)}
+.comment-head small{color:#777}
+.comment p{color:#ddd;white-space:pre-line;word-break:break-word}
+.comment .del{background:none;border:none;color:#d66;cursor:pointer;font-size:12px}
+.no-comments{color:#888;text-align:center;padding:20px 0}
+.visits strong{color:var(--gold);font-size:38px;margin:0 8px;letter-spacing:1px;vertical-align:middle}
+@media(max-width:900px){.products-grid{grid-template-columns:repeat(2,1fr)}.product-details{grid-template-columns:1fr}.details-image{max-width:360px}}
+@media(max-width:650px){.navbar{flex-wrap:wrap}nav{order:3;width:100%;justify-content:center;gap:15px}.products-grid{grid-template-columns:1fr}.hero{min-height:430px}.cart-item{flex-wrap:wrap}.details-info h1{font-size:35px}.news-list{grid-template-columns:1fr}.share-label{margin-inline-start:0;width:100%}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="navbar">
+    <div class="logo" onclick="showView('home')"><span class="lg-h">𓂀</span><span class="lg-e">Moon</span><span class="lg-a">مون</span></div>
+    <nav>
+      <button onclick="showView('home')" data-i18n="navHome"></button>
+      <button onclick="showView('products')" data-i18n="navPerfumes"></button>
+      <button onclick="showView('news')" data-i18n="navNews"></button>
+      <button onclick="showView('contact')" data-i18n="navContact"></button>
+    </nav>
+    <div class="nav-right">
+      <select id="langSelect" class="lang-select" aria-label="Language">
+        <option value="ar">العربية</option>
+        <option value="en">English</option>
+        <option value="fr">Français</option>
+        <option value="es">Español</option>
+      </select>
+      <button class="cart-button" onclick="showView('cart')"><span data-i18n="cartLabel"></span> <span class="cart-count" id="cartCount">0</span></button>
+    </div>
+  </div>
+  <div class="subnav" id="subNav"></div>
+</header>
+
+<section id="home" class="view active">
+  <div class="hero">
+    <div class="hero-content">
+      <div class="wordmark">
+        <div class="wm-hiero">𓅃 𓂀 𓋹</div>
+        <div class="wm-en">Moon</div>
+        <div class="wm-ar">مون</div>
+        <div class="wm-sub"><span class="p">PERFUMES</span><span class="a">للعطور</span></div>
+      </div>
+      <p data-i18n="heroP"></p>
+      <button class="gold-button" onclick="showView('products')" data-i18n="heroBtn"></button>
+    </div>
+  </div>
+  <div class="about">
+    <div class="about-logo"><img src="images/logo.png" alt="Moon Perfumes | مون للعطور" onerror="this.parentElement.innerHTML='<h2 style=&quot;color:#c9a227;text-align:center;padding:40px 0&quot;>MOON</h2>'"></div>
+    <div class="about-text">
+      <h2 data-i18n="aboutTitle"></h2>
+      <p data-i18n="aboutP1"></p>
+      <p data-i18n="aboutP2"></p>
+    </div>
+  </div>
+  <div class="showcase" id="showcase" style="display:none"><img id="showcaseImg" alt="Moon Perfumes"></div>
+  <div class="section">
+    <h2 class="section-title" data-i18n="collectionTitle"></h2>
+    <div id="homeProducts" class="products-grid"></div>
+  </div>
+</section>
+
+<section id="products" class="view">
+  <div class="section">
+    <h2 class="section-title" data-i18n="allPerfumes"></h2>
+    <div id="productsGrid" class="products-grid"></div>
+  </div>
+</section>
+
+<section id="details" class="view">
+  <div class="details-container">
+    <button class="back-btn" onclick="showView('products')" data-i18n="backToPerfumes"></button>
+    <div id="detailsContent"></div>
+  </div>
+</section>
+
+<section id="cart" class="view">
+  <div class="cart-container">
+    <h2 class="section-title" data-i18n="cartTitle"></h2>
+    <div id="cartContent"></div>
+  </div>
+</section>
+
+<section id="checkout" class="view">
+  <div class="checkout-container">
+    <h2 class="section-title" data-i18n="checkoutTitle"></h2>
+    <div id="checkoutSummary" class="checkout-summary"></div>
+    <form id="checkoutForm">
+      <div class="form-group"><label data-i18n="lblName"></label><input type="text" id="customerName" required data-i18n-ph="phName"></div>
+      <div class="form-group"><label data-i18n="lblPhone"></label><input type="tel" id="customerPhone" required placeholder="01xxxxxxxxx" pattern="[0-9+\s]{10,15}" data-i18n-title="phoneTitle"></div>
+      <div class="form-group"><label data-i18n="lblEmail"></label><input type="email" id="customerEmail" required placeholder="example@email.com"></div>
+      <div class="form-group"><label data-i18n="lblAddress"></label><textarea id="customerAddress" required data-i18n-ph="phAddress"></textarea></div>
+      <div class="form-group"><label data-i18n="lblNotes"></label><textarea id="customerNotes" data-i18n-ph="phNotes"></textarea></div>
+      <button type="submit" class="gold-button" id="submitBtn" data-i18n="confirmOrder"></button>
+    </form>
+  </div>
+</section>
+
+<section id="success" class="view">
+  <div class="success-box">
+    <h2 data-i18n="successTitle"></h2>
+    <p id="successText"></p>
+    <a id="successWa" class="wa-link" href="#" target="_blank" rel="noopener" data-i18n="successWa"></a>
+    <br>
+    <button class="gold-button" onclick="showView('home')" data-i18n="backHome"></button>
+  </div>
+</section>
+
+<section id="news" class="view">
+  <article class="news-page">
+    <button class="back-btn" onclick="showView('home')" data-i18n="backHomeArrow"></button><br>
+    <span class="news-tag" data-i18n="navNews"></span>
+    <h1 class="news-title" data-i18n="newsTitle"></h1>
+    <div class="news-meta" data-i18n="newsMeta"></div>
+
+    <img id="newsImg" class="news-hero" alt="Moon Perfumes" style="display:none">
+    <div class="news-caption" id="newsCaption" style="display:none" data-i18n="newsCaption"></div>
+
+    <div class="news-body">
+      <p class="news-lead" data-i18n="newsLead"></p>
+      <p data-i18n="newsP1"></p>
+
+      <h3 data-i18n="newsH1"></h3>
+      <div class="news-list" id="newsList"></div>
+
+      <h3 data-i18n="newsH2"></h3>
+      <ul class="news-points">
+        <li data-i18n="newsB1"></li>
+        <li data-i18n="newsB2"></li>
+        <li data-i18n="newsB3"></li>
+        <li data-i18n="newsB4"></li>
+      </ul>
+
+      <p data-i18n="newsP2"></p>
+      <p data-i18n="newsP3"></p>
+
+      <button class="gold-button" style="margin-top:6px" onclick="showView('products')" data-i18n="newsCta"></button>
+    </div>
+
+    <div class="engage">
+      <button id="likeBtn" class="eng-btn" onclick="toggleLike()"><span id="likeIcon">♡</span> <span data-i18n="likeLabel"></span> (<b id="likeCount">0</b>)</button>
+      <a class="eng-btn" href="#commentsBox" onclick="document.getElementById('commentsBox').scrollIntoView({behavior:'smooth'});return false">💬 <span data-i18n="commentsLink"></span> (<b id="commentCountTop">0</b>)</a>
+      <span class="share-label" data-i18n="shareLabel"></span>
+      <button class="eng-btn" onclick="shareNews('wa')">WhatsApp</button>
+      <button class="eng-btn" onclick="shareNews('fb')">Facebook</button>
+      <button class="eng-btn" onclick="shareNews('copy')" data-i18n="shareCopy"></button>
+      <button class="eng-btn" id="nativeShare" style="display:none" onclick="shareNews('native')" data-i18n="shareNative"></button>
+    </div>
+
+    <div class="comments-box" id="commentsBox">
+      <h3><span data-i18n="commentsTitle"></span> (<span id="commentCount">0</span>)</h3>
+      <form class="comment-form" id="commentForm">
+        <input type="text" id="commentName" maxlength="40" data-i18n-ph="phCName">
+        <textarea id="commentText" maxlength="600" required data-i18n-ph="phCText"></textarea>
+        <button type="submit" class="gold-button" data-i18n="postComment"></button>
+      </form>
+      <div id="commentsList"></div>
+    </div>
+  </article>
+</section>
+
+<section id="contact" class="view">
+  <div class="contact-container">
+    <h2 class="section-title" data-i18n="contactTitle"></h2>
+    <div class="contact-box">
+      <h2 style="color:#c9a227;margin-bottom:15px">Moon Perfumes</h2>
+      <p data-i18n="contactP"></p>
+      <p style="margin-top:20px">WhatsApp: <strong style="color:#c9a227" dir="ltr">01019631902</strong></p>
+      <a class="wa-link" href="https://wa.me/201019631902" target="_blank" rel="noopener" data-i18n="waBtn"></a>
+      <p class="address">📍 <strong data-i18n="addrLabel"></strong> <span data-i18n="addrVal"></span></p>
+      <div class="socials">
+        <a id="igLink" href="#" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a id="ttLink" href="#" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 3c.3 2.3 1.7 3.8 4 4v3.2c-1.5 0-2.9-.5-4-1.3v6.4c0 3.3-2.7 5.7-5.7 5.7S5.2 19.6 5.2 16.5c0-3.4 2.9-6 6.3-5.6v3.3c-1.6-.5-3 .6-3 2.2 0 1.3 1 2.3 2.3 2.3 1.4 0 2.3-1 2.3-2.4V3h3.4z"/></svg>
+        </a>
+        <a id="fbLink" href="#" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4.5h-3C11.8 4.5 10 6.3 10 8.5V11H7.5v3.5H10V21h3.5v-6.5h2.8l.5-3.5H13.5V9c0-.6.4-1 1-1z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div data-i18n-html="rights"></div>
+  <div class="visits">👁 <span data-i18n="visitsLabel"></span> <strong id="visitCount">...</strong></div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* =====================================================
+   اللغات: العربية / English / Français / Español
+   ===================================================== */
+const LANGS = {
+  ar: { dir: "rtl", locale: "ar-EG" },
+  en: { dir: "ltr", locale: "en-US" },
+  fr: { dir: "ltr", locale: "fr-FR" },
+  es: { dir: "ltr", locale: "es-ES" }
+};
+
+const T = { ar: {}, en: {}, fr: {}, es: {} };
+function K(key, ar, en, fr, es) { T.ar[key] = ar; T.en[key] = en; T.fr[key] = fr; T.es[key] = es; }
+
+/* --- القائمة --- */
+K("navHome", "الرئيسية", "Home", "Accueil", "Inicio");
+K("navPerfumes", "العطور", "Perfumes", "Parfums", "Perfumes");
+K("navNews", "الأخبار", "News", "Actualités", "Noticias");
+K("navContact", "تواصل معنا", "Contact us", "Contact", "Contacto");
+K("cartLabel", "🛒 السلة", "🛒 Cart", "🛒 Panier", "🛒 Carrito");
+K("collectionLabel", "مجموعة العطور:", "Collection:", "Collection :", "Colección:");
+
+/* --- الرئيسية --- */
+K("heroP", "اكتشف مجموعة مختارة من العطور المستوحاة من الحضارة المصرية بروائح مميزة وحضور لا يُنسى.",
+  "Discover a curated collection of fragrances inspired by Egyptian civilization, with distinctive scents and an unforgettable presence.",
+  "Découvrez une collection raffinée de parfums inspirés de la civilisation égyptienne, aux senteurs distinctives et à la présence inoubliable.",
+  "Descubre una colección selecta de fragancias inspiradas en la civilización egipcia, con aromas distintivos y una presencia inolvidable.");
+K("heroBtn", "اكتشف العطور", "Discover the perfumes", "Découvrir les parfums", "Descubrir los perfumes");
+K("aboutTitle", "عن Moon Perfumes", "About Moon Perfumes", "À propos de Moon Perfumes", "Sobre Moon Perfumes");
+K("aboutP1", "مون للعطور علامة مستوحاة من عظمة الحضارة المصرية القديمة، تقدم مجموعة من ست عطور مستوحاة من الآلهة المصرية: عود، إيزيس، أوزيريس، رع، أنوبيس وحورس.",
+  "Moon Perfumes is a brand inspired by the grandeur of ancient Egyptian civilization, offering six fragrances inspired by the Egyptian gods: Oud, Isis, Osiris, Ra, Anubis and Horus.",
+  "Moon Perfumes est une marque inspirée par la grandeur de l'Égypte ancienne. Elle propose six parfums inspirés des dieux égyptiens : Oud, Isis, Osiris, Ra, Anubis et Horus.",
+  "Moon Perfumes es una marca inspirada en la grandeza del antiguo Egipto, con seis fragancias inspiradas en los dioses egipcios: Oud, Isis, Osiris, Ra, Anubis y Horus.");
+K("aboutP2", "كل عطر مصمم بتوازن بين الافتتاحية والقلب والقاعدة، في زجاجة 50 مل بحضور أنيق وثبات مميز.",
+  "Each fragrance is balanced between top, heart and base notes, in an elegant 50 ml bottle with a refined presence.",
+  "Chaque parfum est composé avec un équilibre entre notes de tête, de cœur et de fond, dans un élégant flacon de 50 ml à la présence raffinée.",
+  "Cada fragancia está equilibrada entre notas de salida, corazón y fondo, en un elegante frasco de 50 ml con una presencia refinada.");
+K("collectionTitle", "مجموعة Moon Perfumes", "Moon Perfumes Collection", "Collection Moon Perfumes", "Colección Moon Perfumes");
+K("allPerfumes", "جميع العطور", "All perfumes", "Tous les parfums", "Todos los perfumes");
+
+/* --- المنتجات --- */
+K("detailsBtn", "التفاصيل", "Details", "Détails", "Detalles");
+K("addToCart", "أضف للسلة", "Add to cart", "Ajouter au panier", "Añadir al carrito");
+K("backToPerfumes", "← العودة للعطور", "← Back to perfumes", "← Retour aux parfums", "← Volver a los perfumes");
+K("backHomeArrow", "← الرئيسية", "← Home", "← Accueil", "← Inicio");
+K("notesTop", "الافتتاحية", "Top notes", "Notes de tête", "Notas de salida");
+K("notesHeart", "القلب", "Heart notes", "Notes de cœur", "Notas de corazón");
+K("notesBase", "القاعدة", "Base notes", "Notes de fond", "Notas de fondo");
+K("notesSize", "الحجم", "Size", "Format", "Tamaño");
+K("sizeVal", "50 مل", "50 ml", "50 ml", "50 ml");
+K("egp", "جنيه", "EGP", "EGP", "EGP");
+K("addedToast", "تمت إضافة {name} إلى السلة ✔", "{name} added to cart ✔", "{name} ajouté au panier ✔", "{name} añadido al carrito ✔");
+
+/* --- السلة والطلب --- */
+K("cartTitle", "سلة المشتريات", "Shopping cart", "Panier", "Carrito de compras");
+K("cartEmpty", "السلة فارغة", "Your cart is empty", "Votre panier est vide", "Tu carrito está vacío");
+K("cartEmptyP", "لم تقم بإضافة أي عطر حتى الآن.", "You haven't added any perfume yet.", "Vous n'avez encore ajouté aucun parfum.", "Aún no has añadido ningún perfume.");
+K("browse", "تصفح العطور", "Browse perfumes", "Parcourir les parfums", "Ver perfumes");
+K("totalLabel", "الإجمالي:", "Total:", "Total :", "Total:");
+K("checkoutBtn", "إتمام الطلب", "Checkout", "Passer la commande", "Finalizar pedido");
+K("remove", "حذف", "Remove", "Supprimer", "Eliminar");
+K("checkoutTitle", "إتمام الطلب", "Checkout", "Passer la commande", "Finalizar pedido");
+K("orderSummary", "ملخص الطلب", "Order summary", "Récapitulatif de la commande", "Resumen del pedido");
+K("qtyLabel", "الكمية:", "Quantity:", "Quantité :", "Cantidad:");
+K("priceLabel", "السعر:", "Price:", "Prix :", "Precio:");
+K("lblName", "الاسم بالكامل *", "Full name *", "Nom complet *", "Nombre completo *");
+K("lblPhone", "رقم الهاتف *", "Phone number *", "Numéro de téléphone *", "Teléfono *");
+K("lblEmail", "البريد الإلكتروني *", "Email *", "E-mail *", "Correo electrónico *");
+K("lblAddress", "العنوان بالتفصيل *", "Detailed address *", "Adresse détaillée *", "Dirección detallada *");
+K("lblNotes", "ملاحظات إضافية", "Additional notes", "Remarques supplémentaires", "Notas adicionales");
+K("phName", "اكتب اسمك بالكامل", "Enter your full name", "Saisissez votre nom complet", "Escribe tu nombre completo");
+K("phAddress", "المحافظة - المنطقة - الشارع - رقم العقار...", "Governorate - Area - Street - Building no...", "Gouvernorat - Quartier - Rue - N° d'immeuble...", "Gobernación - Zona - Calle - N.º de edificio...");
+K("phNotes", "أي ملاحظات خاصة بالطلب...", "Any special notes for the order...", "Remarques particulières sur la commande...", "Cualquier nota especial sobre el pedido...");
+K("phoneTitle", "اكتب رقم هاتف صحيح", "Enter a valid phone number", "Saisissez un numéro de téléphone valide", "Escribe un teléfono válido");
+K("confirmOrder", "تأكيد الطلب", "Confirm order", "Confirmer la commande", "Confirmar pedido");
+K("sending", "جاري إرسال الطلب...", "Sending your order...", "Envoi de la commande...", "Enviando tu pedido...");
+K("cartEmptyToast", "السلة فارغة", "Your cart is empty", "Votre panier est vide", "Tu carrito está vacío");
+K("checkoutEmpty", "السلة فارغة.", "Your cart is empty.", "Votre panier est vide.", "Tu carrito está vacío.");
+K("successTitle", "✔ تم استلام طلبك", "✔ Order received", "✔ Commande reçue", "✔ Pedido recibido");
+K("successDefault", "سيتم التواصل معك قريبًا لتأكيد الطلب.", "We will contact you soon to confirm your order.", "Nous vous contacterons bientôt pour confirmer votre commande.", "Te contactaremos pronto para confirmar tu pedido.");
+K("successOk", "رقم طلبك {id}. تم إرسال الطلب، وهيتم التواصل معاك قريبًا. اضغط الزر بالأسفل لإرسال تفاصيل الطلب على واتساب.",
+  "Your order number is {id}. Your order was sent and we will contact you soon. Tap the button below to also send the order details on WhatsApp.",
+  "Votre numéro de commande est {id}. Votre commande a été envoyée et nous vous contacterons bientôt. Appuyez sur le bouton ci-dessous pour envoyer aussi les détails sur WhatsApp.",
+  "Tu número de pedido es {id}. Tu pedido fue enviado y te contactaremos pronto. Pulsa el botón de abajo para enviar también los detalles por WhatsApp.");
+K("successFail", "رقم طلبك {id}. اضغط الزر بالأسفل لإرسال الطلب على واتساب لإتمامه.",
+  "Your order number is {id}. Tap the button below to send your order on WhatsApp to complete it.",
+  "Votre numéro de commande est {id}. Appuyez sur le bouton ci-dessous pour envoyer votre commande sur WhatsApp et la finaliser.",
+  "Tu número de pedido es {id}. Pulsa el botón de abajo para enviar tu pedido por WhatsApp y completarlo.");
+K("adminNote", "(تنبيه للإدارة: فشل إرسال الإيميل — السبب: {err})", "(Admin note: email sending failed — reason: {err})", "(Note admin : l'envoi de l'e-mail a échoué — raison : {err})", "(Nota admin: falló el envío del correo — motivo: {err})");
+K("successWa", "إرسال الطلب على واتساب مرة أخرى", "Send the order on WhatsApp again", "Renvoyer la commande sur WhatsApp", "Enviar el pedido por WhatsApp de nuevo");
+K("backHome", "العودة للرئيسية", "Back to home", "Retour à l'accueil", "Volver al inicio");
+
+/* --- تواصل معنا / الفوتر --- */
+K("contactTitle", "تواصل معنا", "Contact us", "Contactez-nous", "Contáctanos");
+K("contactP", "للاستفسار أو طلب المساعدة تواصل معنا مباشرة.", "For inquiries or help, contact us directly.", "Pour toute question ou aide, contactez-nous directement.", "Para consultas o ayuda, contáctanos directamente.");
+K("waBtn", "راسلنا على واتساب", "Message us on WhatsApp", "Écrivez-nous sur WhatsApp", "Escríbenos por WhatsApp");
+K("addrLabel", "العنوان:", "Address:", "Adresse :", "Dirección:");
+K("addrVal", "القاهرة، مصر", "Cairo, Egypt", "Le Caire, Égypte", "El Cairo, Egipto");
+K("rights", "© 2026 <strong>Moon Perfumes</strong> — جميع الحقوق محفوظة", "© 2026 <strong>Moon Perfumes</strong> — All rights reserved", "© 2026 <strong>Moon Perfumes</strong> — Tous droits réservés", "© 2026 <strong>Moon Perfumes</strong> — Todos los derechos reservados");
+K("visitsLabel", "عدد الزوار:", "Visitors:", "Visiteurs :", "Visitantes:");
+
+/* --- الأخبار --- */
+K("newsTitle", "مون للعطور تُطلق تشكيلتها الجديدة: ست عطور مستوحاة من أرواح الآلهة المصرية",
+  "Moon Perfumes launches its new collection: six fragrances inspired by the spirits of the Egyptian gods",
+  "Moon Perfumes dévoile sa nouvelle collection : six parfums inspirés par l'esprit des dieux égyptiens",
+  "Moon Perfumes presenta su nueva colección: seis fragancias inspiradas en el espíritu de los dioses egipcios");
+K("newsMeta", "📅 9 أكتوبر 2026 · ✍ فريق Moon Perfumes", "📅 October 9, 2026 · ✍ Moon Perfumes Team", "📅 9 octobre 2026 · ✍ Équipe Moon Perfumes", "📅 9 de octubre de 2026 · ✍ Equipo Moon Perfumes");
+K("newsCaption", "مجموعة Moon Perfumes الكاملة: عود · إيزيس · أوزيريس · رع · أنوبيس · حورس",
+  "The complete Moon Perfumes collection: Oud · Isis · Osiris · Ra · Anubis · Horus",
+  "La collection complète Moon Perfumes : Oud · Isis · Osiris · Ra · Anubis · Horus",
+  "La colección completa Moon Perfumes: Oud · Isis · Osiris · Ra · Anubis · Horus");
+K("newsLead", "من القاهرة، تفتح Moon Perfumes باب الحضارة المصرية القديمة على عالم العطور، بمجموعة من ست روائح تحمل أسماء عود وإيزيس وأوزيريس ورع وأنوبيس وحورس، وتحكي كل واحدة منها قصة مختلفة.",
+  "From Cairo, Moon Perfumes opens the door of ancient Egyptian civilization to the world of fragrance, with six scents named Oud, Isis, Osiris, Ra, Anubis and Horus, each telling a different story.",
+  "Depuis Le Caire, Moon Perfumes ouvre les portes de l'Égypte ancienne au monde du parfum, avec six senteurs nommées Oud, Isis, Osiris, Ra, Anubis et Horus, chacune racontant une histoire différente.",
+  "Desde El Cairo, Moon Perfumes abre las puertas del antiguo Egipto al mundo de la perfumería con seis aromas llamados Oud, Isis, Osiris, Ra, Anubis y Horus, cada uno con una historia distinta.");
+K("newsP1", "بدأت الفكرة من سؤال بسيط: ماذا لو كان للحضارة المصرية رائحة؟ من هنا وُلدت المجموعة، فكل زجاجة تحمل على ملصقها رموزًا هيروغليفية وزخارف ذهبية، وكل عطر يبدأ بافتتاحية تشدّ الانتباه من أول رشّة، ثم قلب يتفتّح بعد دقائق، وينتهي بقاعدة دافئة تبقى معك طوال اليوم.",
+  "The idea began with a simple question: what if Egyptian civilization had a scent? That is how the collection was born. Every bottle carries hieroglyphic symbols and golden ornaments on its label, and every fragrance opens with a top note that grabs your attention from the first spray, then a heart that unfolds minutes later, and ends on a warm base that stays with you all day.",
+  "L'idée est née d'une question simple : et si la civilisation égyptienne avait une odeur ? C'est ainsi qu'est née cette collection. Chaque flacon porte sur son étiquette des symboles hiéroglyphiques et des ornements dorés ; chaque parfum s'ouvre sur une note de tête qui captive dès la première pulvérisation, puis un cœur qui s'épanouit quelques minutes plus tard, et s'achève sur un fond chaleureux qui vous accompagne toute la journée.",
+  "La idea nació de una pregunta sencilla: ¿y si la civilización egipcia tuviera un aroma? Así nació esta colección. Cada frasco lleva en su etiqueta símbolos jeroglíficos y adornos dorados, y cada fragancia se abre con una nota de salida que capta la atención desde el primer toque, sigue con un corazón que se despliega minutos después y termina con una base cálida que te acompaña todo el día.");
+K("newsH1", "ست عطور.. ست حكايات", "Six fragrances, six stories", "Six parfums, six histoires", "Seis fragancias, seis historias");
+K("newsH2", "لماذا ستحب مون؟", "Why you'll love Moon", "Pourquoi vous allez aimer Moon", "Por qué te encantará Moon");
+K("newsB1", "تصميم يليق بالحضارة التي ألهمته: زجاجات أنيقة بغطاء ذهبي وملصقات مزخرفة بالهيروغليفية.",
+  "A design worthy of the civilization that inspired it: elegant bottles with golden caps and labels decorated with hieroglyphs.",
+  "Un design digne de la civilisation qui l'a inspiré : de beaux flacons au bouchon doré et des étiquettes ornées de hiéroglyphes.",
+  "Un diseño digno de la civilización que lo inspiró: elegantes frascos con tapa dorada y etiquetas decoradas con jeroglíficos.");
+K("newsB2", "تنوّع يناسب كل الأذواق: من الحمضيات المنعشة والزهور البيضاء إلى العود والتوابل والعنبر.",
+  "Variety for every taste: from fresh citrus and white flowers to oud, spices and amber.",
+  "De la variété pour tous les goûts : des agrumes frais et des fleurs blanches à l'oud, aux épices et à l'ambre.",
+  "Variedad para todos los gustos: desde cítricos frescos y flores blancas hasta oud, especias y ámbar.");
+K("newsB3", "مكونات مرتبة بعناية بين الافتتاحية والقلب والقاعدة لتمنح كل عطر شخصيته الخاصة.",
+  "Carefully arranged top, heart and base notes give each fragrance its own personality.",
+  "Des notes de tête, de cœur et de fond soigneusement agencées donnent à chaque parfum sa propre personnalité.",
+  "Notas de salida, corazón y fondo cuidadosamente dispuestas dan a cada fragancia su propia personalidad.");
+K("newsB4", "زجاجة 50 مل لكل عطر بسعر {price} جنيه، مع إمكانية الطلب بسهولة عبر الموقع أو واتساب.",
+  "A 50 ml bottle for each fragrance at {price} EGP, with easy ordering through the website or WhatsApp.",
+  "Un flacon de 50 ml pour chaque parfum à {price} EGP, avec une commande facile via le site ou WhatsApp.",
+  "Un frasco de 50 ml por cada fragancia a {price} EGP, con pedido fácil a través del sitio web o WhatsApp.");
+K("newsP2", "العطر في النهاية ليس مجرد رائحة، بل توقيع شخصي يسبقك إلى المكان ويبقى بعد رحيلك. ونحن نؤمن أن هذه المجموعة ستكون من أجمل ما جرّبته، سواء كنت تبحث عن عطر لنفسك أو هدية تُدهش من تحب.",
+  "In the end, a fragrance is more than a scent; it is a personal signature that arrives before you and lingers after you leave. We believe this collection will be among the finest you have tried, whether you are looking for yourself or for a gift that will surprise someone you love.",
+  "Un parfum est bien plus qu'une odeur : c'est une signature personnelle qui vous précède et reste après votre départ. Nous sommes convaincus que cette collection sera l'une des plus belles que vous ayez essayées, que vous cherchiez un parfum pour vous ou un cadeau qui surprendra vos proches.",
+  "Al final, una fragancia es más que un aroma: es una firma personal que llega antes que tú y permanece cuando te vas. Creemos que esta colección será de las mejores que hayas probado, ya sea para ti o como un regalo que sorprenda a quien quieres.");
+K("newsP3", "مجموعة Moon Perfumes متاحة الآن للطلب. اختر عطرك المفضّل، أو جرّب أكثر من واحد، وكن من أوائل من يعيشون تجربة العطر المصري بروح جديدة.",
+  "The Moon Perfumes collection is now available to order. Choose your favorite, or try more than one, and be among the first to experience Egyptian perfumery with a fresh spirit.",
+  "La collection Moon Perfumes est désormais disponible à la commande. Choisissez votre préféré, ou essayez-en plusieurs, et soyez parmi les premiers à vivre la parfumerie égyptienne avec un esprit nouveau.",
+  "La colección Moon Perfumes ya está disponible para pedir. Elige tu favorito, o prueba varios, y sé de los primeros en vivir la perfumería egipcia con un espíritu renovado.");
+K("newsCta", "اكتشف العطور الآن", "Discover the perfumes now", "Découvrir les parfums maintenant", "Descubre los perfumes ahora");
+K("likeLabel", "أعجبني", "Like", "J'aime", "Me gusta");
+K("commentsLink", "تعليقات", "Comments", "Commentaires", "Comentarios");
+K("shareLabel", "مشاركة الخبر:", "Share this news:", "Partager cette actualité :", "Compartir esta noticia:");
+K("shareCopy", "نسخ الرابط", "Copy link", "Copier le lien", "Copiar enlace");
+K("shareNative", "مشاركة...", "Share...", "Partager...", "Compartir...");
+K("commentsTitle", "التعليقات", "Comments", "Commentaires", "Comentarios");
+K("phCName", "اسمك (اختياري)", "Your name (optional)", "Votre nom (facultatif)", "Tu nombre (opcional)");
+K("phCText", "اكتب تعليقك هنا...", "Write your comment here...", "Écrivez votre commentaire ici...", "Escribe tu comentario aquí...");
+K("postComment", "نشر التعليق", "Post comment", "Publier le commentaire", "Publicar comentario");
+K("noComments", "كن أول من يعلّق على الخبر 👇", "Be the first to comment 👇", "Soyez le premier à commenter 👇", "Sé el primero en comentar 👇");
+K("visitor", "زائر", "Visitor", "Visiteur", "Visitante");
+K("commentPosted", "تم نشر تعليقك ✔", "Comment posted ✔", "Commentaire publié ✔", "Comentario publicado ✔");
+K("copied", "تم نسخ الرابط ✔", "Link copied ✔", "Lien copié ✔", "Enlace copiado ✔");
+K("copyPrompt", "انسخ الرابط:", "Copy the link:", "Copiez le lien :", "Copia el enlace:");
+K("imgMissing", "⚠ الموقع مش لاقي صورة العطور: images/moon-all.jpg — تأكد إن index.html جنب فولدر images وافتحه من نفس الفولدر",
+  "⚠ The site can't find the perfumes image: images/moon-all.jpg — make sure index.html sits next to the images folder",
+  "⚠ Le site ne trouve pas l'image des parfums : images/moon-all.jpg — vérifiez que index.html est à côté du dossier images",
+  "⚠ El sitio no encuentra la imagen de los perfumes: images/moon-all.jpg — comprueba que index.html esté junto a la carpeta images");
+
+/* الإنجليزي هو البديل لو ترجمة ناقصة */
+let lang = "ar";
+function t(key, vars) {
+  let s = (T[lang] && T[lang][key] !== undefined) ? T[lang][key] : (T.en[key] !== undefined ? T.en[key] : (T.ar[key] !== undefined ? T.ar[key] : key));
+  const v = Object.assign({ price: products[0].price }, vars || {});
+  return s.replace(/\{(\w+)\}/g, (m, k) => (k in v ? v[k] : m));
+}
+function locale() { return LANGS[lang].locale; }
+
+/* =====================================================
+   بيانات العطور (بدون كميات)
+   ===================================================== */
+const products = [
+  { id:"oud", name:"Oud", arabicName:"عود", price:500, image:"images/oud.jpg", tr:{
+    ar:{ description:"عطر شرقي فاخر يجمع بين الزعفران والفلفل الوردي مع الورد الطائفي والعود والعنبر والمسك.", top:"زعفران · فلفل وردي", heart:"ورد طائفي · باتشولي", base:"عود · عنبر · مسك" },
+    en:{ description:"A luxurious oriental fragrance blending saffron and pink pepper with Taif rose, oud, amber and musk.", top:"Saffron · Pink pepper", heart:"Taif rose · Patchouli", base:"Oud · Amber · Musk" },
+    fr:{ description:"Un parfum oriental luxueux qui marie le safran et le poivre rose à la rose de Taïf, à l'oud, à l'ambre et au musc.", top:"Safran · Poivre rose", heart:"Rose de Taïf · Patchouli", base:"Oud · Ambre · Musc" },
+    es:{ description:"Una fragancia oriental de lujo que combina azafrán y pimienta rosa con rosa de Taif, oud, ámbar y almizcle.", top:"Azafrán · Pimienta rosa", heart:"Rosa de Taif · Pachulí", base:"Oud · Ámbar · Almizcle" } } },
+  { id:"isis", name:"Isis", arabicName:"إيزيس", price:500, image:"images/isis.jpg", tr:{
+    ar:{ description:"عطر أنثوي أنيق يجمع بين البرغموت والكمثرى والزهور البيضاء مع لمسات ناعمة من الفانيليا والصندل والمسك الأبيض.", top:"برغموت · كمثرى", heart:"ياسمين · ورد · زنبق", base:"فانيليا · صندل · مسك أبيض" },
+    en:{ description:"An elegant feminine fragrance combining bergamot, pear and white flowers with soft touches of vanilla, sandalwood and white musk.", top:"Bergamot · Pear", heart:"Jasmine · Rose · Lily", base:"Vanilla · Sandalwood · White musk" },
+    fr:{ description:"Un parfum féminin élégant qui associe bergamote, poire et fleurs blanches, avec de douces touches de vanille, de santal et de musc blanc.", top:"Bergamote · Poire", heart:"Jasmin · Rose · Lys", base:"Vanille · Santal · Musc blanc" },
+    es:{ description:"Una elegante fragancia femenina que combina bergamota, pera y flores blancas con suaves toques de vainilla, sándalo y almizcle blanco.", top:"Bergamota · Pera", heart:"Jazmín · Rosa · Lirio", base:"Vainilla · Sándalo · Almizcle blanco" } } },
+  { id:"osiris", name:"Osiris", arabicName:"أوزيريس", price:500, image:"images/osiris.jpg", tr:{
+    ar:{ description:"عطر منعش وأنيق يبدأ بالليمون والهيل، ثم ينتقل إلى اللافندر والجيرانيوم والمريمية، وينتهي بقاعدة خشبية دافئة.", top:"ليمون · هيل", heart:"لافندر · جيرانيوم · مريمية", base:"فيتيفر · أرز · تونكا" },
+    en:{ description:"A fresh, elegant fragrance that opens with lemon and cardamom, moves to lavender, geranium and sage, and ends on a warm woody base.", top:"Lemon · Cardamom", heart:"Lavender · Geranium · Sage", base:"Vetiver · Cedar · Tonka bean" },
+    fr:{ description:"Un parfum frais et élégant qui s'ouvre sur le citron et la cardamome, évolue vers la lavande, le géranium et la sauge, et s'achève sur un fond boisé chaleureux.", top:"Citron · Cardamome", heart:"Lavande · Géranium · Sauge", base:"Vétiver · Cèdre · Fève tonka" },
+    es:{ description:"Una fragancia fresca y elegante que se abre con limón y cardamomo, pasa a lavanda, geranio y salvia, y termina con una cálida base amaderada.", top:"Limón · Cardamomo", heart:"Lavanda · Geranio · Salvia", base:"Vetiver · Cedro · Haba tonka" } } },
+  { id:"ra", name:"Ra", arabicName:"رع", price:500, image:"images/ra.jpg", tr:{
+    ar:{ description:"عطر مشرق وحيوي يجمع الحمضيات مع زهر البرتقال والنيرولي والياسمين، بلمسات ناعمة من العنبر والفانيليا والمسك.", top:"برتقال · مندلينا · جريب فروت", heart:"زهر البرتقال · نيرولي · ياسمين", base:"عنبر · فانيليا · مسك" },
+    en:{ description:"A bright, lively fragrance blending citrus with orange blossom, neroli and jasmine, with soft touches of amber, vanilla and musk.", top:"Orange · Mandarin · Grapefruit", heart:"Orange blossom · Neroli · Jasmine", base:"Amber · Vanilla · Musk" },
+    fr:{ description:"Un parfum lumineux et vivant qui associe les agrumes à la fleur d'oranger, au néroli et au jasmin, avec de douces touches d'ambre, de vanille et de musc.", top:"Orange · Mandarine · Pamplemousse", heart:"Fleur d'oranger · Néroli · Jasmin", base:"Ambre · Vanille · Musc" },
+    es:{ description:"Una fragancia luminosa y vibrante que combina cítricos con azahar, neroli y jazmín, con suaves toques de ámbar, vainilla y almizcle.", top:"Naranja · Mandarina · Pomelo", heart:"Azahar · Neroli · Jazmín", base:"Ámbar · Vainilla · Almizcle" } } },
+  { id:"anubis", name:"Anubis", arabicName:"أنوبيس", price:500, image:"images/anubis.jpg", tr:{
+    ar:{ description:"عطر قوي وغامض لمحبي الروائح الشرقية العميقة، يجمع التوابل والجلد واللبان والتبغ مع العود والعنبر الرمادي.", top:"فلفل أسود · جنزبيل", heart:"جلد · لبان · تبغ", base:"مر · عود · باتشولي · عنبر رمادي" },
+    en:{ description:"A strong, mysterious fragrance for lovers of deep oriental scents, combining spices, leather, frankincense and tobacco with oud and ambergris.", top:"Black pepper · Ginger", heart:"Leather · Frankincense · Tobacco", base:"Myrrh · Oud · Patchouli · Ambergris" },
+    fr:{ description:"Un parfum puissant et mystérieux pour les amateurs de senteurs orientales profondes, mêlant épices, cuir, encens et tabac à l'oud et à l'ambre gris.", top:"Poivre noir · Gingembre", heart:"Cuir · Encens · Tabac", base:"Myrrhe · Oud · Patchouli · Ambre gris" },
+    es:{ description:"Una fragancia intensa y misteriosa para los amantes de los aromas orientales profundos, que combina especias, cuero, incienso y tabaco con oud y ámbar gris.", top:"Pimienta negra · Jengibre", heart:"Cuero · Incienso · Tabaco", base:"Mirra · Oud · Pachulí · Ámbar gris" } } },
+  { id:"horus", name:"Horus", arabicName:"حورس", price:500, image:"images/horus.jpg", tr:{
+    ar:{ description:"عطر عصري يبدأ بالأناناس والبرغموت، مع قلب من خشب الأرز وأوراق التبغ والجيرانيوم وقاعدة من المسك والأمبروكسان والأخشاب.", top:"أناناس · برغموت", heart:"خشب الأرز · أوراق التبغ · جيرانيوم", base:"مسك · أمبروكسان · خشب الغاب" },
+    en:{ description:"A modern fragrance that opens with pineapple and bergamot, with a heart of cedarwood, tobacco leaves and geranium, and a base of musk, ambroxan and woods.", top:"Pineapple · Bergamot", heart:"Cedarwood · Tobacco leaf · Geranium", base:"Musk · Ambroxan · Woods" },
+    fr:{ description:"Un parfum moderne qui s'ouvre sur l'ananas et la bergamote, avec un cœur de bois de cèdre, de feuilles de tabac et de géranium, et un fond de musc, d'ambroxan et de bois.", top:"Ananas · Bergamote", heart:"Bois de cèdre · Feuille de tabac · Géranium", base:"Musc · Ambroxan · Bois" },
+    es:{ description:"Una fragancia moderna que se abre con piña y bergamota, con un corazón de madera de cedro, hojas de tabaco y geranio, y una base de almizcle, ambroxan y maderas.", top:"Piña · Bergamota", heart:"Madera de cedro · Hoja de tabaco · Geranio", base:"Almizcle · Ambroxan · Maderas" } } }
+];
+function pt(p, field) { return (p.tr[lang] && p.tr[lang][field]) || p.tr.en[field] || p.tr.ar[field]; }
+
+/* ========= إعداد EmailJS ========= */
+const EMAILJS_PUBLIC_KEY  = "jSUoA_gi-5T9cFpYe";
+const EMAILJS_SERVICE_ID  = "service_s7f3sbn";
+const EMAILJS_TEMPLATE_ID = "template_44exiq6";
+const WHATSAPP_NUMBER     = "201019631902";
+
+/* روابط السوشيال — غيّرها بروابط صفحاتك الحقيقية */
+const SOCIAL = {
+  igLink: "https://www.instagram.com/",
+  ttLink: "https://www.tiktok.com/",
+  fbLink: "https://www.facebook.com/"
+};
+Object.entries(SOCIAL).forEach(([id, url]) => { const el = document.getElementById(id); if (el) el.href = url; });
+
+let emailReady = false;
+try { emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY }); emailReady = true; } catch (e) { console.error("EmailJS init failed", e); }
+
+/* ========= أدوات ========= */
+function toast(msg) {
+  const el = document.getElementById("toast");
+  el.textContent = msg;
+  el.classList.add("show");
+  clearTimeout(toast._t);
+  toast._t = setTimeout(() => el.classList.remove("show"), 2200);
+}
+function withTimeout(promise, ms) {
+  return Promise.race([promise, new Promise((_, rej) => setTimeout(() => rej(new Error("timeout")), ms))]);
+}
+function lsGet(k, d) { try { const v = localStorage.getItem(k); return v === null ? d : v; } catch (e) { return d; } }
+function lsSet(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c]));
+}
+
+/* ========= السلة ========= */
+function loadCart() {
+  try {
+    const c = JSON.parse(lsGet("moonCart", "[]"));
+    return Array.isArray(c) ? c.filter(i => i && products.some(p => p.id === i.id) && i.quantity > 0) : [];
+  } catch (e) { return []; }
+}
+let cart = loadCart();
+
+function saveCart() { lsSet("moonCart", JSON.stringify(cart)); updateCartCount(); }
+function updateCartCount() {
+  document.getElementById("cartCount").textContent = cart.reduce((s, i) => s + i.quantity, 0);
+}
+function addToCart(id, qty = 1) {
+  const p = products.find(x => x.id === id);
+  if (!p) return;
+  const ex = cart.find(i => i.id === id);
+  if (ex) ex.quantity += qty; else cart.push({ id, quantity: qty });
+  saveCart();
+  toast(t("addedToast", { name: p.name }));
+}
+function changeCartQuantity(id, amt) {
+  const it = cart.find(i => i.id === id);
+  if (!it) return;
+  it.quantity += amt;
+  if (it.quantity <= 0) cart = cart.filter(i => i.id !== id);
+  saveCart(); renderCart();
+}
+function removeFromCart(id) { cart = cart.filter(i => i.id !== id); saveCart(); renderCart(); }
+
+/* ========= التنقل ========= */
+let currentView = "home";
+function showView(name) {
+  currentView = name;
+  document.querySelectorAll(".view").forEach(v => v.classList.remove("active"));
+  const v = document.getElementById(name);
+  if (v) v.classList.add("active");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  if (name === "cart") renderCart();
+  if (name === "checkout") renderCheckout();
+  try { history.replaceState(null, "", name === "news" ? "#news" : location.pathname + location.search); } catch (e) {}
+}
+
+/* ========= المنتجات والصور ========= */
+let SHEET = "images/moon-all.jpg";
+const CROP = { oud:[0,0], isis:[50,0], osiris:[100,0], ra:[0,100], anubis:[50,100], horus:[100,100] };
+let sheetOk = false;
+const own = {};
+
+function renderSubNav() {
+  document.getElementById("subNav").innerHTML = `<span>${t("collectionLabel")}</span>` +
+    products.map(p => `<button onclick="openProduct('${p.id}')">${p.name} · ${p.arabicName}</button>`).join("");
+}
+
+function productImage(p) {
+  if (own[p.id]) return `<img src="${p.image}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover">`;
+  if (!sheetOk || !CROP[p.id]) return `<div class="image-placeholder">${p.name}</div>`;
+  const [x, y] = CROP[p.id];
+  return `<div class="crop" role="img" aria-label="${p.name}" style="background-image:url('${SHEET}');background-position:${x}% ${y}%"></div>`;
+}
+
+function renderProducts() {
+  const html = products.map(p => `
+    <div class="product-card">
+      <div class="product-image" onclick="openProduct('${p.id}')">${productImage(p)}</div>
+      <div class="product-info">
+        <div class="product-name">${p.name}</div>
+        <div class="product-arabic">${p.arabicName}</div>
+        <div class="product-price">${p.price} ${t("egp")}</div>
+        <div class="product-description">${pt(p, "description")}</div>
+        <div class="product-actions">
+          <button class="details-btn" onclick="openProduct('${p.id}')">${t("detailsBtn")}</button>
+          <button class="add-btn" onclick="addToCart('${p.id}',1)">${t("addToCart")}</button>
+        </div>
+      </div>
+    </div>`).join("");
+  document.getElementById("productsGrid").innerHTML = html;
+  document.getElementById("homeProducts").innerHTML = html;
+}
+
+let detailQuantity = 1, currentProductId = null;
+
+function renderDetails(id) {
+  const p = products.find(x => x.id === id);
+  if (!p) return;
+  document.getElementById("detailsContent").innerHTML = `
+    <div class="product-details">
+      <div class="details-image">${productImage(p)}</div>
+      <div class="details-info">
+        <h1>${p.name}</h1>
+        <h2>${p.arabicName}</h2>
+        <div class="details-price">${p.price} ${t("egp")}</div>
+        <p class="details-description">${pt(p, "description")}</p>
+        <div class="notes-box">
+          <div class="note-row"><strong>${t("notesTop")}</strong>${pt(p, "top")}</div>
+          <div class="note-row"><strong>${t("notesHeart")}</strong>${pt(p, "heart")}</div>
+          <div class="note-row"><strong>${t("notesBase")}</strong>${pt(p, "base")}</div>
+          <div class="note-row"><strong>${t("notesSize")}</strong>${t("sizeVal")}</div>
+        </div>
+        <div class="quantity-control">
+          <button onclick="changeDetailQuantity(-1)">−</button>
+          <span id="detailQuantity">${detailQuantity}</span>
+          <button onclick="changeDetailQuantity(1)">+</button>
+        </div>
+        <button class="gold-button" onclick="addToCart(currentProductId, detailQuantity)">${t("addToCart")}</button>
+      </div>
+    </div>`;
+}
+function openProduct(id) {
+  currentProductId = id; detailQuantity = 1;
+  renderDetails(id);
+  showView("details");
+}
+function changeDetailQuantity(a) {
+  detailQuantity = Math.max(1, detailQuantity + a);
+  document.getElementById("detailQuantity").textContent = detailQuantity;
+}
+
+/* ========= عرض السلة ========= */
+function renderCart() {
+  const c = document.getElementById("cartContent");
+  if (cart.length === 0) {
+    c.innerHTML = `<div class="empty-cart"><h2>${t("cartEmpty")}</h2><p style="margin-top:10px">${t("cartEmptyP")}</p>
+      <button class="gold-button" onclick="showView('products')">${t("browse")}</button></div>`;
+    return;
+  }
+  const items = cart.map(it => {
+    const p = products.find(x => x.id === it.id);
+    const img = (sheetOk || own[p.id]) ? productImage(p) : `<div class="mini-bottle"></div>`;
+    return `
+      <div class="cart-item">
+        <div class="cart-item-image">${img}</div>
+        <div class="cart-item-info">
+          <h3>${p.name}</h3><p>${p.arabicName}</p><p>${p.price} ${t("egp")} × ${it.quantity}</p>
+        </div>
+        <div class="cart-quantity">
+          <button onclick="changeCartQuantity('${p.id}',-1)">−</button>
+          <span>${it.quantity}</span>
+          <button onclick="changeCartQuantity('${p.id}',1)">+</button>
+        </div>
+        <strong style="color:#c9a227">${p.price * it.quantity} ${t("egp")}</strong>
+        <button class="remove-btn" onclick="removeFromCart('${p.id}')">${t("remove")}</button>
+      </div>`;
+  }).join("");
+  c.innerHTML = `${items}<div class="cart-total">${t("totalLabel")} ${getCartTotal()} ${t("egp")}</div>
+    <button class="gold-button" onclick="showView('checkout')">${t("checkoutBtn")}</button>`;
+}
+
+/* ========= Checkout ========= */
+function getCartTotal() {
+  return cart.reduce((sum, it) => {
+    const p = products.find(x => x.id === it.id);
+    return sum + (p ? p.price * it.quantity : 0);
+  }, 0);
+}
+/* ملخص للعميل بلغته */
+function getOrderDetails() {
+  return cart.map(it => {
+    const p = products.find(x => x.id === it.id);
+    return p ? `${p.name} - ${p.arabicName}\n${t("qtyLabel")} ${it.quantity}\n${t("priceLabel")} ${p.price} ${t("egp")}\n${t("totalLabel")} ${p.price * it.quantity} ${t("egp")}\n` : "";
+  }).join("\n");
+}
+/* تفاصيل الطلب اللي بتوصل لصاحب المتجر (الإيميل وواتساب): دايمًا بالعربي */
+function getOrderDetailsAr() {
+  return cart.map(it => {
+    const p = products.find(x => x.id === it.id);
+    return p ? `${p.name} - ${p.arabicName}\nالكمية: ${it.quantity}\nالسعر: ${p.price} جنيه\nالإجمالي: ${p.price * it.quantity} جنيه\n` : "";
+  }).join("\n");
+}
+function renderCheckout() {
+  const box = document.getElementById("checkoutSummary");
+  if (cart.length === 0) {
+    box.innerHTML = `<p>${t("checkoutEmpty")} <a href="#" onclick="showView('products');return false" style="color:#c9a227">${t("browse")}</a></p>`;
+    return;
+  }
+  box.innerHTML = `<h3 style="color:#c9a227;margin-bottom:15px">${t("orderSummary")}</h3>
+    <p style="white-space:pre-line">${getOrderDetails()}</p>
+    <hr style="border-color:#333;margin:15px 0">
+    <strong style="font-size:22px;color:#c9a227">${t("totalLabel")} ${getCartTotal()} ${t("egp")}</strong>`;
+}
+
+/* ========= صفحة النجاح ========= */
+let successState = null;
+function renderSuccess() {
+  const el = document.getElementById("successText");
+  el.style.whiteSpace = "pre-line";
+  if (!successState) { el.textContent = t("successDefault"); return; }
+  let txt = t(successState.emailOk ? "successOk" : "successFail", { id: successState.orderId });
+  if (!successState.emailOk) txt += "\n\n" + t("adminNote", { err: successState.err });
+  el.textContent = txt;
+}
+
+document.getElementById("checkoutForm").addEventListener("submit", async function (e) {
+  e.preventDefault();
+  if (cart.length === 0) { toast(t("cartEmptyToast")); return; }
+
+  const name = customerName.value.trim();
+  const phone = customerPhone.value.trim();
+  const email = customerEmail.value.trim();
+  const address = customerAddress.value.trim();
+  const notes = customerNotes.value.trim();
+  const total = getCartTotal();
+  const orderDetails = getOrderDetailsAr();
+  const orderId = "MOON-" + Date.now().toString().slice(-7);
+
+  const emailData = {
+    order_id: orderId,
+    customer_name: name,
+    customer_phone: phone,
+    customer_email: email,
+    reply_to: email,
+    email: email,
+    name: name,
+    customer_address: address,
+    order_details: orderDetails,
+    total_price: `${total} جنيه`,
+    customer_notes: notes || "لا يوجد",
+    customer_lang: lang
+  };
+
+  const waMessage =
+`طلب جديد من Moon Perfumes
+رقم الطلب: ${orderId}
+
+الاسم: ${name}
+الهاتف: ${phone}
+البريد: ${email}
+العنوان: ${address}
+
+الطلب:
+${orderDetails}
+الإجمالي: ${total} جنيه
+
+ملاحظات: ${notes || "لا يوجد"}
+لغة العميل: ${lang}`;
+
+  const waURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(waMessage)}`;
+
+  const btn = document.getElementById("submitBtn");
+  btn.disabled = true;
+  btn.textContent = t("sending");
+
+  /* 1) الإيميل (لو فشل، مش بيوقف الطلب) */
+  let emailOk = false, emailErr = "";
+  try {
+    if (!emailReady) throw new Error("EmailJS not ready");
+    await withTimeout(emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, emailData), 15000);
+    emailOk = true;
+  } catch (err) {
+    console.error("EmailJS error:", err);
+    emailErr = `${err && err.status ? err.status + " - " : ""}${(err && (err.text || err.message)) || err}`;
+  }
+
+  /* 2) نفضي السلة ونعرض صفحة النجاح */
+  cart = []; saveCart();
+  e.target.reset();
+  successState = { emailOk, orderId, err: emailErr };
+  renderSuccess();
+  document.getElementById("successWa").href = waURL;
+  showView("success");
+
+  btn.disabled = false;
+  btn.textContent = t("confirmOrder");
+
+  /* 3) فتح واتساب في نفس التبويب */
+  setTimeout(() => { window.location.href = waURL; }, 1200);
+});
+
+/* =====================================================
+   الأخبار / الإعجابات / التعليقات / المشاركة / الزوار
+   ===================================================== */
+function renderNewsList() {
+  const box = document.getElementById("newsList");
+  box.innerHTML = products.map(p => `<div><strong>${p.name} · ${p.arabicName}</strong><span>${pt(p, "description")}</span></div>`).join("");
+}
+
+/* عداد خارجي مجاني (counterapi.dev) للزوار وإعجابات الخبر */
+const COUNTER_BASE = "https://api.counterapi.dev/v1/moonperfumes-cairo";
+async function counter(key, action) {
+  const url = `${COUNTER_BASE}/${key}${action ? "/" + action : ""}`;
+  const res = await withTimeout(fetch(url), 7000);
+  if (!res.ok) throw new Error("counter " + res.status);
+  const data = await res.json();
+  const n = Number(data.count ?? data.Count);
+  if (isNaN(n)) throw new Error("bad counter data");
+  return n;
+}
+
+/* --- الزوار --- */
+let visitsN = Number(lsGet("moonVisitsCache", "")) || null;
+function paintVisits() {
+  document.getElementById("visitCount").textContent = visitsN === null ? "—" : visitsN.toLocaleString(locale());
+}
+async function initVisits() {
+  paintVisits();
+  let counted = false;
+  try { counted = sessionStorage.getItem("moonVisited") === "1"; } catch (e) {}
+  try {
+    const n = await counter("visits", counted ? "" : "up");
+    try { sessionStorage.setItem("moonVisited", "1"); } catch (e) {}
+    visitsN = n; lsSet("moonVisitsCache", n); paintVisits();
+  } catch (e) { paintVisits(); }
+}
+
+/* --- الإعجابات --- */
+let liked = lsGet("moonNewsLiked", "0") === "1";
+let likeCount = Number(lsGet("moonNewsLikesCache", "0")) || 0;
+function paintLike() {
+  document.getElementById("likeCount").textContent = likeCount.toLocaleString(locale());
+  document.getElementById("likeIcon").textContent = liked ? "♥" : "♡";
+  document.getElementById("likeBtn").classList.toggle("liked", liked);
+}
+async function initLikes() {
+  paintLike();
+  try { likeCount = await counter("news1-likes", ""); lsSet("moonNewsLikesCache", likeCount); paintLike(); } catch (e) {}
+}
+async function toggleLike() {
+  liked = !liked;
+  likeCount = Math.max(0, likeCount + (liked ? 1 : -1));
+  lsSet("moonNewsLiked", liked ? "1" : "0");
+  lsSet("moonNewsLikesCache", likeCount);
+  paintLike();
+  try { likeCount = await counter("news1-likes", liked ? "up" : "down"); lsSet("moonNewsLikesCache", likeCount); paintLike(); } catch (e) {}
+}
+
+/* --- التعليقات (محفوظة على جهاز الزائر) --- */
+function loadComments() {
+  try { const c = JSON.parse(lsGet("moonNewsComments", "[]")); return Array.isArray(c) ? c : []; } catch (e) { return []; }
+}
+let comments = loadComments();
+function renderComments() {
+  document.getElementById("commentCount").textContent = comments.length;
+  document.getElementById("commentCountTop").textContent = comments.length;
+  const box = document.getElementById("commentsList");
+  if (!comments.length) { box.innerHTML = `<div class="no-comments">${t("noComments")}</div>`; return; }
+  box.innerHTML = comments.slice().reverse().map(c => {
+    const when = c.ts ? new Date(c.ts).toLocaleDateString(locale(), { day: "numeric", month: "long", year: "numeric" }) : (c.date || "");
+    const who = c.name || t("visitor");
+    return `
+    <div class="comment">
+      <div class="comment-head">
+        <strong>${escapeHtml(who)}</strong>
+        <span><small>${escapeHtml(when)}</small> <button class="del" onclick="deleteComment(${Number(c.id)})">${t("remove")}</button></span>
+      </div>
+      <p>${escapeHtml(c.text)}</p>
+    </div>`;
+  }).join("");
+}
+function deleteComment(id) {
+  comments = comments.filter(c => c.id !== id);
+  lsSet("moonNewsComments", JSON.stringify(comments));
+  renderComments();
+}
+document.getElementById("commentForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+  const text = document.getElementById("commentText").value.trim();
+  if (!text) return;
+  const name = document.getElementById("commentName").value.trim();
+  const now = Date.now();
+  comments.push({ id: now, name, text, ts: now });
+  lsSet("moonNewsComments", JSON.stringify(comments));
+  e.target.reset();
+  renderComments();
+  toast(t("commentPosted"));
+});
+
+/* --- المشاركة --- */
+function newsURL() { return location.href.split("#")[0] + "#news"; }
+function shareNews(type) {
+  const title = t("newsTitle");
+  const url = newsURL();
+  if (type === "wa") window.open("https://wa.me/?text=" + encodeURIComponent(title + "\n" + url), "_blank", "noopener");
+  else if (type === "fb") window.open("https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(url), "_blank", "noopener");
+  else if (type === "native" && navigator.share) navigator.share({ title, text: title, url }).catch(() => {});
+  else if (type === "copy") {
+    const done = () => toast(t("copied"));
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(url).then(done, () => prompt(t("copyPrompt"), url));
+    else prompt(t("copyPrompt"), url);
+  }
+}
+if (navigator.share) document.getElementById("nativeShare").style.display = "inline-block";
+
+/* =====================================================
+   تطبيق اللغة
+   ===================================================== */
+function applyLang() {
+  document.documentElement.lang = lang;
+  document.documentElement.dir = LANGS[lang].dir;
+  document.querySelectorAll("[data-i18n]").forEach(el => { el.textContent = t(el.dataset.i18n); });
+  document.querySelectorAll("[data-i18n-html]").forEach(el => { el.innerHTML = t(el.dataset.i18nHtml); });
+  document.querySelectorAll("[data-i18n-ph]").forEach(el => { el.placeholder = t(el.dataset.i18nPh); });
+  document.querySelectorAll("[data-i18n-title]").forEach(el => { el.title = t(el.dataset.i18nTitle); });
+  document.getElementById("langSelect").value = lang;
+  document.getElementById("submitBtn").textContent = t("confirmOrder");
+
+  renderSubNav();
+  renderProducts();
+  renderNewsList();
+  renderComments();
+  renderSuccess();
+  paintLike();
+  paintVisits();
+  if (currentView === "cart") renderCart();
+  if (currentView === "checkout") renderCheckout();
+  if (currentView === "details" && currentProductId) renderDetails(currentProductId);
+}
+function setLang(l) {
+  if (!LANGS[l]) return;
+  lang = l;
+  lsSet("moonLang", l);
+  applyLang();
+}
+document.getElementById("langSelect").addEventListener("change", e => setLang(e.target.value));
+
+/* =====================================================
+   تشغيل الموقع
+   ===================================================== */
+lang = LANGS[lsGet("moonLang", "ar")] ? lsGet("moonLang", "ar") : "ar";
+updateCartCount();
+applyLang();
+
+/* بيدور على الصورة الكبيرة بأكتر من اسم/امتداد، وياخد أول واحدة تتلاقي */
+const SHEET_TRY = ["images/moon-all.jpg","images/moon-all.jpeg","images/moon-all.png","images/moon-all.webp",
+  "images/moon-all.jpg.jpeg","images/moon-all.jpeg.jpg","images/moon-all.jpg.jpg","images/moon-all.jpg.png","images/moon-all.jpg.webp","images/moon-all.JPEG","images/Moon-all.jpg","images/moon_all.jpg","images/moon-all.JPG"];
+function findSheet(i) {
+  if (i >= SHEET_TRY.length) {
+    console.warn("moon-all image not found in images/");
+    toast(t("imgMissing"));
+    return;
+  }
+  const im = new Image();
+  im.onload = () => {
+    SHEET = SHEET_TRY[i]; sheetOk = true;
+    document.documentElement.style.setProperty("--sheet", `url("${SHEET}")`);
+    document.getElementById("showcaseImg").src = SHEET;
+    document.getElementById("showcase").style.display = "block";
+    const ni = document.getElementById("newsImg");
+    ni.src = SHEET; ni.style.display = "block";
+    document.getElementById("newsCaption").style.display = "block";
+    renderProducts();
+    renderNewsList();
+    if (currentView === "cart") renderCart();
+    if (currentView === "details" && currentProductId) renderDetails(currentProductId);
+  };
+  im.onerror = () => findSheet(i + 1);
+  im.src = SHEET_TRY[i];
+}
+findSheet(0);
+products.forEach(p => {
+  const im = new Image();
+  im.onload = () => { own[p.id] = true; renderProducts(); };
+  im.src = p.image;
+});
+
+initLikes();
+initVisits();
+if (location.hash === "#news") showView("news");
+</script>
+</body>
+</html>
