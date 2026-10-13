@@ -4,6 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Moon Perfumes | عطور مون</title>
+<meta name="description" content="Moon Perfumes — عطور مصرية فاخرة للرجال والنساء وتركيب عطر حسب الطلب. توصيل داخل مصر من 1 إلى 3 أيام عمل. القاهرة.">
+<meta name="theme-color" content="#090909">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Moon Perfumes">
+<meta property="og:title" content="Moon Perfumes | عطور مون">
+<meta property="og:description" content="عطور مصرية فاخرة للرجال والنساء وتركيب عطر حسب الطلب.">
+<meta property="og:image" content="images/logo.png">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="images/logo.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Store","name":"Moon Perfumes","description":"عطور مصرية فاخرة للرجال والنساء وتركيب عطر حسب الطلب","telephone":"+201019631902","address":{"@type":"PostalAddress","addressLocality":"Cairo","addressCountry":"EG"},"sameAs":["https://www.instagram.com/moon.perfumes.eg/"]}</script>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Aref+Ruqaa:wght@400;700&family=Noto+Sans+Egyptian+Hieroglyphs&display=swap" rel="stylesheet">
@@ -253,6 +263,44 @@ body.inv-pos58 .inv-qr{width:84px;height:84px}
 .inv-qr svg{width:100%;height:100%;display:block}
 .inv-foot .cap{color:#666;font-size:.8em}
 .inv-foot .oid{font-family:monospace;font-weight:bold;letter-spacing:1px}
+
+.size-pill{min-width:84px;padding:8px 6px}
+.promo-box{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:0 0 12px;color:var(--gold-light);font-size:14px}
+.promo-box input{flex:1;min-width:120px;background:#141414;border:1px solid #333;color:#fff;border-radius:7px;padding:9px 12px;outline:none;text-transform:uppercase}
+.promo-box input:focus{border-color:var(--gold)}
+.tot-disc{color:#7fd48a}
+.pay-opts label.pay-opt{display:flex;gap:10px;align-items:center;padding:10px 12px;border:1px solid #333;border-radius:8px;margin-bottom:8px;cursor:pointer;color:#fff}
+.pay-opts label.pay-opt:has(input:checked){border-color:var(--gold);background:rgba(201,162,39,.1)}
+.pay-opts input{width:auto !important;padding:0 !important}
+.pay-note{background:rgba(201,162,39,.1);border:1px solid var(--border);border-radius:8px;padding:8px 14px;color:var(--gold-light);font-size:14px;margin-top:6px;white-space:pre-line}
+.search-box{max-width:420px;margin:-10px auto 28px}
+.search-box input{width:100%;background:#141414;border:1px solid #333;color:#fff;border-radius:22px;padding:11px 18px;outline:none;font-size:15px}
+.search-box input:focus{border-color:var(--gold)}
+.details-media{display:flex;flex-direction:column;align-items:center;min-width:0}
+.thumbs{display:flex;gap:8px;justify-content:center;margin-top:12px;flex-wrap:wrap}
+.thumbs button{width:62px;height:62px;border:1px solid #444;border-radius:8px;overflow:hidden;padding:0;background:#111;cursor:pointer}
+.thumbs button.on{border-color:var(--gold)}
+.thumbs img{width:100%;height:100%;object-fit:cover}
+.wa-float{position:fixed;bottom:22px;inset-inline-end:18px;width:54px;height:54px;border-radius:50%;background:#25d366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(0,0,0,.5);z-index:2500;transition:.25s}
+.wa-float:hover{transform:scale(1.08)}
+.wa-float svg{width:30px;height:30px}
+.foot-links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:16px}
+.foot-links button{background:none;border:none;color:var(--gold-light);cursor:pointer;font-size:14px;text-decoration:underline}
+.policy-page,.track-page{max-width:820px;margin:0 auto;padding:40px 20px}
+.policy-page h3{color:var(--gold);margin:26px 0 6px}
+.policy-page p{color:#ddd}
+.policy-draft{color:#777;font-size:12px;margin-top:28px}
+.track-box{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}
+.track-box input{flex:1;min-width:200px;background:#141414;border:1px solid #333;color:#fff;border-radius:7px;padding:12px;outline:none;direction:ltr;text-align:start}
+.track-box input:focus{border-color:var(--gold)}
+.track-box .gold-button{margin:0}
+.track-steps{list-style:none;margin:18px 0}
+.track-steps li{padding:12px 16px;border:1px solid #333;border-radius:10px;margin-bottom:8px;color:#777}
+.track-steps li.done{color:#fff;border-color:var(--gold);background:rgba(201,162,39,.1)}
+.track-steps li.now{font-weight:bold;color:var(--gold-light)}
+.track-msg{color:#ddd;margin:10px 0}
+.track-bad{color:#ff8a80}
+@media print{.wa-float{display:none !important}}
 @media print{
   html,body{background:#fff !important}
   header,footer,.toast,.inv-actions,.subnav,.menu-panel{display:none !important}
@@ -328,6 +376,7 @@ body.inv-pos58 .inv-qr{width:84px;height:84px}
       <button onclick="showView('her')">FOR HER</button>
       <button onclick="showView('custom')" data-i18n="navCustom"></button>
     </div>
+    <div class="search-box"><input type="search" id="pSearch" data-i18n-ph="searchPh" oninput="setSearch(this.value)" autocomplete="off"></div>
     <div id="productsGrid" class="products-grid"></div>
   </div>
 </section>
@@ -410,8 +459,10 @@ body.inv-pos58 .inv-qr{width:84px;height:84px}
       <div class="form-group"><label data-i18n="lblName"></label><input type="text" id="customerName" required data-i18n-ph="phName"></div>
       <div class="form-group"><label data-i18n="lblPhone"></label><input type="tel" id="customerPhone" required placeholder="01xxxxxxxxx" pattern="[0-9+\s]{10,15}" data-i18n-title="phoneTitle"></div>
       <div class="form-group"><label data-i18n="lblEmail"></label><input type="email" id="customerEmail" required placeholder="example@email.com"></div>
+      <div class="form-group"><label data-i18n="lblGov"></label><select id="customerGov" class="field-select" required onchange="setGov(this.value)"></select></div>
       <div class="form-group"><label data-i18n="lblAddress"></label><textarea id="customerAddress" required data-i18n-ph="phAddress"></textarea></div>
       <div class="form-group"><label data-i18n="lblNotes"></label><textarea id="customerNotes" data-i18n-ph="phNotes"></textarea></div>
+      <div class="form-group pay-opts" id="payBox" style="display:none"></div>
       <button type="submit" class="gold-button" id="submitBtn" data-i18n="confirmOrder"></button>
     </form>
   </div>
@@ -424,6 +475,8 @@ body.inv-pos58 .inv-qr{width:84px;height:84px}
     <a id="successWa" class="wa-link" href="#" target="_blank" rel="noopener" data-i18n="successWa"></a>
     <br>
     <button class="gold-button" onclick="openLastInvoice()" data-i18n="invView"></button>
+    <br>
+    <button class="gold-button" onclick="openTrackLast()" data-i18n="navTrack"></button>
     <br>
     <button class="gold-button" onclick="showView('home')" data-i18n="backHome"></button>
   </div>
@@ -483,6 +536,29 @@ body.inv-pos58 .inv-qr{width:84px;height:84px}
   </article>
 </section>
 
+<section id="track" class="view">
+  <div class="track-page">
+    <h2 class="section-title" data-i18n="trackTitle"></h2>
+    <p class="track-msg" data-i18n="trackIntro"></p>
+    <form class="track-box" onsubmit="trackOrder();return false">
+      <input type="text" id="trackInput" maxlength="20" data-i18n-ph="trackPh" autocomplete="off">
+      <button type="submit" class="gold-button" data-i18n="trackBtn"></button>
+    </form>
+    <div id="trackResult"></div>
+  </div>
+</section>
+
+<section id="policies" class="view">
+  <div class="policy-page">
+    <h2 class="section-title" data-i18n="polTitle"></h2>
+    <h3 data-i18n="pol1T"></h3><p data-i18n="pol1P"></p>
+    <h3 data-i18n="pol2T"></h3><p data-i18n="pol2P"></p>
+    <h3 data-i18n="pol3T"></h3><p data-i18n="pol3P"></p>
+    <h3 data-i18n="pol4T"></h3><p data-i18n="pol4P"></p>
+    <h3 data-i18n="pol5T"></h3><p data-i18n="pol5P"></p>
+  </div>
+</section>
+
 <section id="invoice" class="view">
   <div class="inv-wrap">
     <div class="inv-actions">
@@ -531,10 +607,18 @@ body.inv-pos58 .inv-qr{width:84px;height:84px}
       <button type="submit" class="gold-button" id="subBtn" data-i18n="subBtn"></button>
     </form>
   </div>
+  <div class="foot-links">
+    <button type="button" onclick="showView('track')" data-i18n="navTrack"></button>
+    <button type="button" onclick="showView('policies')" data-i18n="navPolicies"></button>
+    <button type="button" onclick="showView('contact')" data-i18n="navContact"></button>
+  </div>
   <div data-i18n-html="rights"></div>
   <div class="visits">👁 <span data-i18n="visitsLabel"></span> <strong id="visitCount">...</strong></div>
 </footer>
 
+<a class="wa-float" id="waFloat" href="https://wa.me/201019631902" target="_blank" rel="noopener" aria-label="WhatsApp" data-i18n-title="waFloatTitle">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23 4.54 0 8.23 3.69 8.23 8.23s-3.7 8.24-8.23 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07s.88 2.4 1 2.56c.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>
+</a>
 <div class="toast" id="toast"></div>
 
 <script>
@@ -2085,6 +2169,56 @@ K("invNotes", "ملاحظات", "Notes", "Remarques", "Notas");
 K("invOrderNo", "رقم الطلب", "Order no.", "N° de commande", "N.º de pedido");
 K("invScan", "امسح لقراءة رقم الطلب", "Scan for the order number", "Scannez pour le numéro de commande", "Escanea para ver el número de pedido");
 
+K("size10", "10 مل · عينة", "10 ml · sample", "10 ml · échantillon", "10 ml · muestra");
+K("promoPh", "كود الخصم", "Discount code", "Code promo", "Código de descuento");
+K("promoApply", "تطبيق", "Apply", "Appliquer", "Aplicar");
+K("promoRemove", "إلغاء", "Remove", "Retirer", "Quitar");
+K("promoOk", "تم تطبيق خصم {pct}%", "{pct}% discount applied", "Remise de {pct}% appliquée", "Descuento del {pct}% aplicado");
+K("promoBad", "كود الخصم غير صحيح", "Invalid discount code", "Code promo invalide", "Código de descuento no válido");
+K("discountLabel", "الخصم:", "Discount:", "Remise :", "Descuento:");
+K("shipFree", "مجاني", "Free", "Gratuite", "Gratis");
+K("lblGov", "المحافظة *", "Governorate *", "Gouvernorat *", "Gobernación *");
+K("govPick", "اختر المحافظة", "Choose governorate", "Choisissez le gouvernorat", "Elige la gobernación");
+K("lblPay", "طريقة الدفع", "Payment method", "Mode de paiement", "Método de pago");
+K("payCod", "الدفع عند الاستلام", "Cash on delivery", "Paiement à la livraison", "Pago contra reembolso");
+K("payInsta", "إنستاباي", "InstaPay", "InstaPay", "InstaPay");
+K("payVf", "فودافون كاش", "Vodafone Cash", "Vodafone Cash", "Vodafone Cash");
+K("payInstaNote", "حوّل الإجمالي على إنستاباي: {num}\nثم ابعت صورة التحويل على واتساب مع رقم الطلب.", "Transfer the total via InstaPay: {num}\nThen send the transfer screenshot on WhatsApp with your order number.", "Virez le total par InstaPay : {num}\nPuis envoyez la capture sur WhatsApp avec votre numéro de commande.", "Transfiere el total por InstaPay: {num}\nLuego envía la captura por WhatsApp con tu número de pedido.");
+K("payVfNote", "حوّل الإجمالي على فودافون كاش: {num}\nثم ابعت صورة التحويل على واتساب مع رقم الطلب.", "Transfer the total via Vodafone Cash: {num}\nThen send the transfer screenshot on WhatsApp with your order number.", "Virez le total par Vodafone Cash : {num}\nPuis envoyez la capture sur WhatsApp avec votre numéro de commande.", "Transfiere el total por Vodafone Cash: {num}\nLuego envía la captura por WhatsApp con tu número de pedido.");
+K("searchPh", "🔍 ابحث عن عطر...", "🔍 Search a perfume...", "🔍 Rechercher un parfum...", "🔍 Buscar un perfume...");
+K("noResults", "لا توجد نتائج مطابقة.", "No matching results.", "Aucun résultat.", "Sin resultados.");
+K("waFloatTitle", "تواصل معنا على واتساب", "Chat on WhatsApp", "Discuter sur WhatsApp", "Chatea por WhatsApp");
+K("navTrack", "تتبع الطلب", "Track order", "Suivre la commande", "Seguir pedido");
+K("navPolicies", "من نحن والسياسات", "About & policies", "À propos et politiques", "Acerca de y políticas");
+K("trackTitle", "تتبع طلبك", "Track your order", "Suivez votre commande", "Sigue tu pedido");
+K("trackIntro", "اكتب رقم الطلب (مثال: MOON-1234567) لمعرفة حالته.", "Enter your order number (e.g. MOON-1234567) to see its status.", "Saisissez votre numéro de commande (ex. MOON-1234567) pour voir son état.", "Escribe tu número de pedido (p. ej. MOON-1234567) para ver su estado.");
+K("trackPh", "رقم الطلب MOON-...", "Order number MOON-...", "N° de commande MOON-...", "N.º de pedido MOON-...");
+K("trackBtn", "تتبع", "Track", "Suivre", "Seguir");
+K("trackNone", "مفيش طلب بالرقم ده. اتأكد من الرقم أو كلمنا على واتساب.", "No order found with this number. Check it or contact us on WhatsApp.", "Aucune commande avec ce numéro. Vérifiez-le ou contactez-nous sur WhatsApp.", "No hay pedido con este número. Revísalo o contáctanos por WhatsApp.");
+K("trackOff", "تتبع الحالة اللحظي مش متاح حاليًا. ابعتلنا رقم طلبك على واتساب وهنرد عليك بحالته.", "Live tracking is not available right now. Send us your order number on WhatsApp and we'll reply with its status.", "Le suivi en direct n'est pas disponible. Envoyez-nous votre numéro sur WhatsApp et nous vous répondrons.", "El seguimiento en vivo no está disponible. Envíanos tu número por WhatsApp y te responderemos.");
+K("trackWa", "كلمنا على واتساب", "Chat on WhatsApp", "Écrire sur WhatsApp", "Escribir por WhatsApp");
+K("trackErr", "تعذّر الاتصال. جرّب تاني بعد شوية.", "Could not connect. Please try again shortly.", "Connexion impossible. Réessayez plus tard.", "No se pudo conectar. Inténtalo de nuevo.");
+K("st_new", "تم استلام الطلب", "Order received", "Commande reçue", "Pedido recibido");
+K("st_confirmed", "تم تأكيد الطلب", "Order confirmed", "Commande confirmée", "Pedido confirmado");
+K("st_shipped", "تم الشحن", "Shipped", "Expédiée", "Enviado");
+K("st_delivered", "تم التسليم", "Delivered", "Livrée", "Entregado");
+K("st_cancelled", "تم إلغاء الطلب", "Order cancelled", "Commande annulée", "Pedido cancelado");
+K("postFail", "تعذّر الإرسال. تأكد من الاتصال وجرّب تاني.", "Could not post. Check your connection and try again.", "Envoi impossible. Vérifiez votre connexion.", "No se pudo enviar. Revisa tu conexión.");
+K("postWait", "استنى ثواني قبل ما تكتب تاني.", "Please wait a few seconds before posting again.", "Patientez quelques secondes.", "Espera unos segundos.");
+K("rvNoteShared", "تقييمك بيظهر لكل زوار الموقع ويوصل لفريق Moon.", "Your review is visible to all visitors and sent to the Moon team.", "Votre avis est visible par tous les visiteurs et envoyé à l'équipe Moon.", "Tu opinión es visible para todos y se envía al equipo Moon.");
+K("invScan", "امسح لتتبع الطلب", "Scan to track the order", "Scannez pour suivre la commande", "Escanea para seguir el pedido");
+K("polTitle", "من نحن والسياسات", "About us & policies", "À propos et politiques", "Acerca de nosotros y políticas");
+K("pol1T", "من نحن", "About us", "Qui sommes-nous", "Quiénes somos");
+K("pol1P", "Moon Perfumes علامة عطور مصرية مقرها القاهرة، مستوحاة من روح الحضارة المصرية القديمة. نقدّم عطورًا للرجال وللنساء، وتركيبات خاصة حسب الطلب.", "Moon Perfumes is an Egyptian fragrance brand based in Cairo, inspired by the spirit of ancient Egypt. We offer perfumes for him and for her, plus custom blends made to order.", "Moon Perfumes est une marque de parfums égyptienne basée au Caire, inspirée de l'Égypte antique. Nous proposons des parfums pour lui et pour elle, ainsi que des compositions sur mesure.", "Moon Perfumes es una marca egipcia de fragancias con sede en El Cairo, inspirada en el antiguo Egipto. Ofrecemos perfumes para él y para ella, y mezclas personalizadas.");
+K("pol2T", "الشحن والتوصيل", "Shipping & delivery", "Livraison", "Envíos y entrega");
+K("pol2P", "التوصيل خلال من 1 إلى 3 أيام عمل. تظهر رسوم الشحن في السلة قبل تأكيد الطلب، وتتغير حسب المحافظة التي تختارها.", "Delivery takes 1 to 3 business days. The shipping fee is shown in your cart before you confirm, and depends on the governorate you choose.", "Livraison en 1 à 3 jours ouvrables. Les frais d'expédition s'affichent dans le panier avant confirmation et dépendent du gouvernorat choisi.", "La entrega tarda de 1 a 3 días hábiles. El costo de envío aparece en el carrito antes de confirmar y depende de la gobernación elegida.");
+K("pol3T", "الدفع", "Payment", "Paiement", "Pago");
+K("pol3P", "الدفع عند الاستلام. وقد تتوفر طرق دفع إلكترونية أخرى حسب ما يظهر لك عند إتمام الطلب.", "Payment is cash on delivery. Other electronic options may be available as shown at checkout.", "Paiement à la livraison. D'autres moyens électroniques peuvent être proposés à la validation de la commande.", "El pago es contra reembolso. Pueden estar disponibles otras opciones electrónicas al finalizar el pedido.");
+K("pol4T", "الاستبدال والاسترجاع", "Exchange & returns", "Échanges et retours", "Cambios y devoluciones");
+K("pol4P", "لو وصلك منتج تالف أو مختلف عن طلبك، تواصل معنا على واتساب بأسرع وقت ومعك رقم الطلب وصورة للمنتج وسنحل المشكلة. بسبب طبيعة العطور، قد لا يمكن استرجاع المنتجات المفتوحة أو المستخدمة.", "If you receive a damaged or wrong item, contact us on WhatsApp as soon as possible with your order number and a photo and we will sort it out. Because of the nature of perfumes, opened or used products may not be returnable.", "Si vous recevez un article endommagé ou erroné, contactez-nous rapidement sur WhatsApp avec votre numéro de commande et une photo. En raison de la nature des parfums, les produits ouverts ou utilisés peuvent ne pas être repris.", "Si recibes un artículo dañado o equivocado, contáctanos por WhatsApp lo antes posible con tu número de pedido y una foto. Por la naturaleza de los perfumes, los productos abiertos o usados podrían no ser retornables.");
+K("pol5T", "الخصوصية", "Privacy", "Confidentialité", "Privacidad");
+K("pol5P", "نستخدم بياناتك (الاسم والهاتف والبريد والعنوان) فقط لتجهيز طلبك والتواصل معك بشأنه، ولا نبيعها لأي جهة. التقييمات والتعليقات التي تنشرها تظهر لجميع الزوار.", "We use your details (name, phone, email, address) only to prepare your order and contact you about it, and never sell them. Reviews and comments you post are visible to all visitors.", "Nous utilisons vos données (nom, téléphone, e-mail, adresse) uniquement pour traiter votre commande et vous contacter, et ne les vendons jamais. Les avis et commentaires publiés sont visibles par tous.", "Usamos tus datos (nombre, teléfono, correo, dirección) solo para preparar tu pedido y contactarte, y nunca los vendemos. Las opiniones y comentarios que publiques son visibles para todos.");
+
 /* الإنجليزي هو البديل لو ترجمة ناقصة */
 let lang = "ar";
 function tl(l, key, vars) {
@@ -2134,7 +2268,9 @@ function pt(p, field) { return (p.tr[lang] && p.tr[lang][field]) || p.tr.en[fiel
 
 /* الأسعار (بالجنيه) — غيّرها من هنا */
 const SHIPPING_FEE = 100;                      /* الشحن (جنيه) — بيتضاف على أي طلب */
-const PRICES = { 50: 500, 100: 900 };          /* العطور الجاهزة */
+const PRICES = { 10: 150, 50: 500, 100: 900 }; /* العطور الجاهزة (10 مل = عينة) */
+const SIZES = [10, 50, 100];
+const CUSTOM_SIZES = [50, 100];
 const CUSTOM_PRICES = { 50: 500, 100: 900 };   /* التركيب حسب الطلب */
 
 /* ========= إعداد EmailJS ========= */
@@ -2145,6 +2281,59 @@ const WHATSAPP_NUMBER     = "201019631902";
 /* رابط موقعك بعد الرفع على استضافة (مثال: "https://moon-perfumes.netlify.app/").
    بيتحط في رابط الفاتورة اللي بيوصلك. لو سبته فاضي بيستخدم رابط الصفحة الحالي لو الموقع مرفوع. */
 const SITE_URL = "";
+
+/* ===== إعدادات تقدر تعدلها (سيبها فاضية لو مش محتاجها) ===== */
+/* رابط قاعدة بيانات Firebase للتعليقات المشتركة وتتبع الطلب. مثال: "https://moon-xxxx-default-rtdb.firebaseio.com" */
+const FIREBASE_DB_URL = "https://moon-perfumes-default-rtdb.europe-west1.firebasedatabase.app";
+const GA4_ID = "";            /* مثال: "G-XXXXXXXXXX" (Google Analytics) */
+const META_PIXEL_ID = "";     /* رقم Meta Pixel بتاع فيسبوك/انستجرام */
+const PAY_INSTAPAY = "";      /* رقم/عنوان إنستاباي بتاعك. لو فاضي الخيار مش بيظهر */
+const PAY_VFCASH = "";        /* رقم فودافون كاش بتاعك. لو فاضي الخيار مش بيظهر */
+const FREE_SHIPPING_OVER = 0; /* شحن مجاني لو قيمة الطلب (بعد الخصم) وصلت للرقم ده. 0 = مقفول */
+const DISCOUNTS = {};         /* أكواد الخصم: مثال { "MOON10": 10, "WELCOME": 15 } = الكود: نسبة الخصم %. فاضي = مفيش خانة خصم */
+const SHIP_FEES = {};         /* رسوم شحن مخصصة لمحافظة: مثال { cairo: 60, giza: 60, alex: 80 } — الباقي = SHIPPING_FEE */
+const GOVS = [["cairo","القاهرة","Cairo"],["giza","الجيزة","Giza"],["alex","الإسكندرية","Alexandria"],["qalyubia","القليوبية","Qalyubia"],["sharqia","الشرقية","Sharqia"],["dakahlia","الدقهلية","Dakahlia"],["gharbia","الغربية","Gharbia"],["monufia","المنوفية","Monufia"],["beheira","البحيرة","Beheira"],["kafr","كفر الشيخ","Kafr El-Sheikh"],["damietta","دمياط","Damietta"],["portsaid","بورسعيد","Port Said"],["ismailia","الإسماعيلية","Ismailia"],["suez","السويس","Suez"],["nsinai","شمال سيناء","North Sinai"],["ssinai","جنوب سيناء","South Sinai"],["faiyum","الفيوم","Faiyum"],["benisuef","بني سويف","Beni Suef"],["minya","المنيا","Minya"],["asyut","أسيوط","Asyut"],["sohag","سوهاج","Sohag"],["qena","قنا","Qena"],["luxor","الأقصر","Luxor"],["aswan","أسوان","Aswan"],["redsea","البحر الأحمر","Red Sea"],["newvalley","الوادي الجديد","New Valley"],["matrouh","مطروح","Matrouh"]];
+const DB_ON = !!FIREBASE_DB_URL;
+
+/* إحصائيات (اختياري) */
+(function () {
+  try {
+    if (GA4_ID) {
+      const sc = document.createElement("script"); sc.async = true; sc.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(GA4_ID); document.head.appendChild(sc);
+      window.dataLayer = window.dataLayer || []; window.gtag = function () { dataLayer.push(arguments); };
+      gtag("js", new Date()); gtag("config", GA4_ID);
+    }
+    if (META_PIXEL_ID) {
+      !function (f, b, e, v, n, t, s) { if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); }; if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = "2.0"; n.queue = []; t = b.createElement(e); t.async = !0; t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s); }(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+      fbq("init", META_PIXEL_ID); fbq("track", "PageView");
+    }
+  } catch (e) {}
+})();
+function trk(name, params) {
+  try {
+    if (window.gtag) gtag("event", name, params || {});
+    if (window.fbq) { const m = { add_to_cart: "AddToCart", purchase: "Purchase" }; if (m[name]) fbq("track", m[name], { value: params && params.value, currency: "EGP" }); }
+  } catch (e) {}
+}
+
+/* ===== قاعدة بيانات Firebase (REST) ===== */
+async function dbReq(method, path, body) {
+  const res = await withTimeout(fetch(FIREBASE_DB_URL.replace(/\/+$/, "") + "/" + path + ".json", {
+    method, headers: body ? { "Content-Type": "application/json" } : undefined, body: body ? JSON.stringify(body) : undefined
+  }), 9000);
+  if (!res.ok) throw new Error("db " + res.status);
+  return res.json();
+}
+function dbList(obj) {
+  if (!obj || typeof obj !== "object") return [];
+  return Object.keys(obj).map(k => Object.assign({}, obj[k], { id: k })).filter(x => x && typeof x.text === "string").sort((a, b) => (a.ts || 0) - (b.ts || 0));
+}
+function rateOk() {
+  const last = Number(lsGet("moonLastPost", "0")) || 0;
+  if (Date.now() - last < 15000) { toast(t("postWait")); return false; }
+  lsSet("moonLastPost", Date.now());
+  return true;
+}
 
 /* روابط السوشيال — غيّرها بروابط صفحاتك الحقيقية */
 const SOCIAL = {
@@ -2203,7 +2392,7 @@ function loadCart() {
     if (!Array.isArray(c)) return [];
     return c.map(i => {
       if (!i || !(i.quantity > 0)) return null;
-      const size = Number(i.size) === 100 ? 100 : 50;
+      const size = (i.id === "custom" ? CUSTOM_PRICES : PRICES)[Number(i.size)] ? Number(i.size) : 50;
       if (i.id === "custom" && i.custom) return { key: i.key || ("custom|" + Date.now()), id: "custom", size, quantity: i.quantity, custom: i.custom };
       if (!products.some(p => p.id === i.id)) return null;
       return { key: i.id + "|" + size, id: i.id, size, quantity: i.quantity };
@@ -2220,11 +2409,12 @@ function unitPrice(it) { return (it.id === "custom" ? CUSTOM_PRICES : PRICES)[it
 function addToCart(id, qty = 1, size = 50) {
   const p = products.find(x => x.id === id);
   if (!p) return;
-  size = Number(size) === 100 ? 100 : 50;
+  size = PRICES[Number(size)] ? Number(size) : 50;
   const key = id + "|" + size;
   const ex = cart.find(i => i.key === key);
   if (ex) ex.quantity += qty; else cart.push({ key, id, size, quantity: qty });
   saveCart();
+  trk("add_to_cart", { value: PRICES[size] * qty, currency: "EGP" });
   toast(t("addedToast", { name: p.name + " " + t("size" + size) }));
 }
 function changeCartQuantity(key, amt) {
@@ -2238,7 +2428,13 @@ function removeFromCart(key) { cart = cart.filter(i => i.key !== key); saveCart(
 
 /* ========= التنقل ========= */
 let currentView = "home";
-const SHAREABLE = ["news", "him", "her", "custom", "products", "contact"];
+let searchQ = "";
+function setSearch(v) { searchQ = String(v || "").trim().toLowerCase(); renderProducts(); }
+function filterProducts() {
+  if (!searchQ) return products;
+  return products.filter(p => [p.name, p.arabicName, pt(p, "description"), pt(p, "top"), pt(p, "heart"), pt(p, "base")].join(" ").toLowerCase().includes(searchQ));
+}
+const SHAREABLE = ["news", "him", "her", "custom", "products", "contact", "track", "policies"];
 function showView(name) {
   currentView = name;
   closeMenu();
@@ -2249,6 +2445,7 @@ function showView(name) {
   window.scrollTo({ top: 0, behavior: "smooth" });
   if (name === "cart") renderCart();
   if (name === "checkout") renderCheckout();
+  if (name === "news" && DB_ON) fetchComments();
   try { if (name !== "invoice") history.replaceState(null, "", SHAREABLE.includes(name) ? "#" + name : location.pathname + location.search); } catch (e) {}
 }
 
@@ -2275,7 +2472,7 @@ function productImage(p) {
 
 const cardSize = {};   /* الحجم المختار لكل عطر */
 function sizePills(handler, selected) {
-  return [50, 100].map(sz => `<button type="button" class="size-pill${sz === selected ? " active" : ""}" onclick="${handler.replace("%s", sz)}"><span>${t("size" + sz)}</span><b>${PRICES[sz]} ${t("egp")}</b></button>`).join("");
+  return SIZES.map(sz => `<button type="button" class="size-pill${sz === selected ? " active" : ""}" onclick="${handler.replace("%s", sz)}"><span>${t("size" + sz)}</span><b>${PRICES[sz]} ${t("egp")}</b></button>`).join("");
 }
 function genderTag(p) { return `<span class="gender-tag">${p.gender === "her" ? "FOR HER" : "FOR HIM"}</span>`; }
 
@@ -2300,21 +2497,28 @@ function productCard(p) {
 }
 function setCardSize(id, sz) { cardSize[id] = sz; renderProducts(); }
 function renderProducts() {
-  const fill = (elId, list) => { document.getElementById(elId).innerHTML = list.map(productCard).join(""); };
-  fill("productsGrid", products);
+  const fill = (elId, list) => { document.getElementById(elId).innerHTML = list.length ? list.map(productCard).join("") : `<div class="no-comments" style="grid-column:1/-1">${t("noResults")}</div>`; };
+  fill("productsGrid", filterProducts());
   fill("homeProducts", products);
   fill("himGrid", products.filter(p => p.gender === "him"));
   fill("herGrid", products.filter(p => p.gender === "her"));
 }
 
-let detailQuantity = 1, detailSize = 50, currentProductId = null, ratingSel = 0;
+let detailQuantity = 1, detailSize = 50, currentProductId = null, ratingSel = 0, detailImgIdx = 0;
+function setDetailImg(i) { detailImgIdx = i; renderDetails(currentProductId); }
+function detailMediaHtml(p) {
+  const im = p.imgs || [];
+  const main = im.length ? `<img src="${im[detailImgIdx] || im[0]}" alt="${p.name}">` : productImage(p);
+  const th = im.length > 1 ? `<div class="thumbs">${im.map((u, i) => `<button type="button" class="${(i === detailImgIdx) ? "on" : ""}" onclick="setDetailImg(${i})"><img src="${u}" alt=""></button>`).join("")}</div>` : "";
+  return `<div class="details-media"><div class="details-image">${main}</div>${th}</div>`;
+}
 
 function renderDetails(id) {
   const p = products.find(x => x.id === id);
   if (!p) return;
   document.getElementById("detailsContent").innerHTML = `
     <div class="product-details">
-      <div class="details-image">${productImage(p)}</div>
+      ${detailMediaHtml(p)}
       <div class="details-info">
         ${genderTag(p)}
         <h1>${p.name}</h1>
@@ -2326,7 +2530,7 @@ function renderDetails(id) {
           <div class="note-row"><strong>${t("notesTop")}</strong>${pt(p, "top")}</div>
           <div class="note-row"><strong>${t("notesHeart")}</strong>${pt(p, "heart")}</div>
           <div class="note-row"><strong>${t("notesBase")}</strong>${pt(p, "base")}</div>
-          <div class="note-row"><strong>${t("notesSize")}</strong>${t("size50")} · ${t("size100")}</div>
+          <div class="note-row"><strong>${t("notesSize")}</strong>${SIZES.map(z => t("size" + z)).join(" · ")}</div>
         </div>
         <div class="quantity-control">
           <button onclick="changeDetailQuantity(-1)">−</button>
@@ -2346,7 +2550,22 @@ function pShareCount(id) { return Number(lsGet("moonShareCountP_" + id, "0")) ||
 function loadAllReviews() {
   try { const o = JSON.parse(lsGet("moonReviews", "{}")); return (o && typeof o === "object" && !Array.isArray(o)) ? o : {}; } catch (e) { return {}; }
 }
-function loadReviews(id) { const a = loadAllReviews()[id]; return Array.isArray(a) ? a : []; }
+const sharedReviews = {};
+function loadReviews(id) {
+  if (DB_ON) return sharedReviews[id] || [];
+  const a = loadAllReviews()[id]; return Array.isArray(a) ? a : [];
+}
+async function fetchReviews(id) {
+  try {
+    const o = await dbReq("GET", "reviews/" + id);
+    sharedReviews[id] = dbList(o).map(r => Object.assign(r, { rating: Math.min(5, Math.max(1, Math.round(Number(r.rating)) || 5)) }));
+    if (currentView === "details" && currentProductId === id) {
+      const a = document.getElementById("rvText"), b = document.getElementById("rvName");
+      if (a && !a.value && !(b && b.value) && !ratingSel) renderDetails(id);
+      else { const l = document.getElementById("pReviewList"); if (l) l.innerHTML = reviewListHtml(loadReviews(id)); }
+    }
+  } catch (e) { console.warn("fetchReviews failed", e); }
+}
 function saveReviews(id, arr) { const o = loadAllReviews(); o[id] = arr; lsSet("moonReviews", JSON.stringify(o)); }
 function starsStatic(n) { return "★".repeat(n) + "☆".repeat(5 - n); }
 
@@ -2356,7 +2575,7 @@ function reviewListHtml(rs) {
     <div class="comment">
       <div class="comment-head">
         <strong>${escapeHtml(r.name || t("visitor"))}</strong>
-        <span><small>${escapeHtml(new Date(r.ts).toLocaleDateString(locale(), { day: "numeric", month: "long", year: "numeric" }))}</small> <button class="del" onclick="deleteReview('${currentProductId}',${Number(r.id)})">${t("remove")}</button></span>
+        <span><small>${escapeHtml(new Date(r.ts).toLocaleDateString(locale(), { day: "numeric", month: "long", year: "numeric" }))}</small> ${DB_ON ? "" : `<button class="del" onclick="deleteReview('${currentProductId}',${Number(r.id)})">${t("remove")}</button>`}</span>
       </div>
       <div class="star-static">${starsStatic(r.rating)}</div>
       <p>${escapeHtml(r.text)}</p>
@@ -2385,7 +2604,7 @@ function perfumeExtras(p) {
         <textarea id="rvText" maxlength="600" required placeholder="${t("rvPh")}"></textarea>
         <button type="submit" class="gold-button">${t("rvPost")}</button>
       </form>
-      <div class="rv-note">${t("rvNote")}</div>
+      <div class="rv-note">${t(DB_ON ? "rvNoteShared" : "rvNote")}</div>
       <div id="pReviewList">${reviewListHtml(rs)}</div>
     </div>
   </div>`;
@@ -2395,17 +2614,26 @@ function setRating(n) {
   ratingSel = n;
   document.querySelectorAll("#starPicker .star").forEach((b, i) => b.classList.toggle("on", i < n));
 }
-function postReview(e, id) {
+async function postReview(e, id) {
   e.preventDefault();
   if (ratingSel < 1) { toast(t("rvPickStar")); return false; }
   const text = document.getElementById("rvText").value.trim();
   if (!text) return false;
   const name = document.getElementById("rvName").value.trim();
-  const rs = loadReviews(id);
+  if (!rateOk()) return false;
   const now = Date.now();
-  rs.push({ id: now, name, rating: ratingSel, text, ts: now });
-  saveReviews(id, rs);
   const p = products.find(x => x.id === id);
+  if (DB_ON) {
+    const rec = { rating: ratingSel, text, ts: now }; if (name) rec.name = name;
+    try {
+      const r = await dbReq("POST", "reviews/" + id, rec);
+      (sharedReviews[id] = sharedReviews[id] || []).push(Object.assign({ id: r.name }, rec));
+    } catch (err) { toast(t("postFail")); return false; }
+  } else {
+    const rs = loadReviews(id);
+    rs.push({ id: now, name, rating: ratingSel, text, ts: now });
+    saveReviews(id, rs);
+  }
   notifyOwner("review", name || "زائر", `تقييم جديد لعطر ${p.name} - ${p.arabicName}: ${starsStatic(ratingSel)}\n${text}`);
   ratingSel = 0;
   renderDetails(id);
@@ -2454,11 +2682,12 @@ async function sharePerfume(id, type) {
 }
 function setDetailSize(sz) { detailSize = sz; renderDetails(currentProductId); }
 function openProduct(id) {
-  currentProductId = id; detailQuantity = 1; detailSize = cardSize[id] || 50; ratingSel = 0;
+  currentProductId = id; detailQuantity = 1; detailImgIdx = 0; detailSize = cardSize[id] || 50; ratingSel = 0;
   renderDetails(id);
   showView("details");
   try { history.replaceState(null, "", "#p-" + id); } catch (e) {}
   loadPCounts(id);
+  if (DB_ON) fetchReviews(id);
 }
 function changeDetailQuantity(a) {
   detailQuantity = Math.max(1, detailQuantity + a);
@@ -2514,19 +2743,77 @@ function renderCart() {
 function getCartSubtotal() {
   return cart.reduce((sum, it) => sum + unitPrice(it) * it.quantity, 0);
 }
-function getShipping() { return cart.length ? SHIPPING_FEE : 0; }
-function getCartTotal() { return getCartSubtotal() + getShipping(); }   /* شامل الشحن */
+function currentPromo() {
+  const c = lsGet("moonPromo", "");
+  return (c && DISCOUNTS[c]) ? { code: c, pct: DISCOUNTS[c] } : null;
+}
+function getDiscount() { const p = currentPromo(); return p ? Math.round(getCartSubtotal() * p.pct / 100) : 0; }
+function getShipping() {
+  if (!cart.length) return 0;
+  if (FREE_SHIPPING_OVER > 0 && getCartSubtotal() - getDiscount() >= FREE_SHIPPING_OVER) return 0;
+  const g = lsGet("moonGov", "");
+  return (g && SHIP_FEES[g] != null) ? SHIP_FEES[g] : SHIPPING_FEE;
+}
+function getCartTotal() { return getCartSubtotal() - getDiscount() + getShipping(); }   /* بعد الخصم وشامل الشحن */
+function promoBoxHtml() {
+  if (!Object.keys(DISCOUNTS).length) return "";
+  const p = currentPromo();
+  if (p) return `<div class="promo-box"><span>🏷 ${escapeHtml(p.code)} — ${t("promoOk", { pct: p.pct })}</span><button type="button" class="eng-btn" onclick="removePromo()">${t("promoRemove")}</button></div>`;
+  return `<div class="promo-box"><input type="text" maxlength="20" placeholder="${t("promoPh")}" autocomplete="off"><button type="button" class="eng-btn" onclick="applyPromo(this)">${t("promoApply")}</button></div>`;
+}
+function applyPromo(btn) {
+  const code = String(btn.previousElementSibling.value || "").trim().toUpperCase();
+  if (!code || !DISCOUNTS[code]) { toast(t("promoBad")); return; }
+  lsSet("moonPromo", code);
+  renderCart(); renderCheckout();
+  toast(t("promoOk", { pct: DISCOUNTS[code] }));
+}
+function removePromo() { lsSet("moonPromo", ""); renderCart(); renderCheckout(); }
+function setGov(v) { lsSet("moonGov", v); renderCart(); renderCheckout(); }
+function renderGovSelect() {
+  const sel = document.getElementById("customerGov"); if (!sel) return;
+  const cur = lsGet("moonGov", "");
+  sel.innerHTML = `<option value="" disabled${cur ? "" : " selected"}>${t("govPick")}</option>` +
+    GOVS.map(g => `<option value="${g[0]}"${g[0] === cur ? " selected" : ""}>${lang === "ar" ? g[1] : g[2]}</option>`).join("");
+}
+function payOptions() {
+  const a = [["cod", "payCod"]];
+  if (PAY_INSTAPAY) a.push(["insta", "payInsta"]);
+  if (PAY_VFCASH) a.push(["vf", "payVf"]);
+  return a;
+}
+function payMethod() { const r = document.querySelector('input[name="payMethod"]:checked'); return r ? r.value : "cod"; }
+function payName(l, code) { return tl(l, code === "insta" ? "payInsta" : code === "vf" ? "payVf" : "payCod"); }
+function paintPayNote() {
+  const n = document.getElementById("payNote"); if (!n) return;
+  const m = payMethod();
+  n.style.display = m === "cod" ? "none" : "block";
+  n.textContent = m === "insta" ? t("payInstaNote", { num: PAY_INSTAPAY }) : m === "vf" ? t("payVfNote", { num: PAY_VFCASH }) : "";
+}
+function renderPayOpts() {
+  const box = document.getElementById("payBox"); if (!box) return;
+  const opts = payOptions();
+  if (opts.length < 2) { box.style.display = "none"; box.innerHTML = ""; return; }
+  const cur = payMethod();
+  box.style.display = "block";
+  box.innerHTML = `<label>${t("lblPay")}</label>` + opts.map(([v, k]) =>
+    `<label class="pay-opt"><input type="radio" name="payMethod" value="${v}"${v === cur || (!document.querySelector('input[name="payMethod"]') && v === "cod") ? " checked" : ""} onchange="paintPayNote()"> ${t(k)}</label>`).join("") + `<div class="pay-note" id="payNote" style="display:none"></div>`;
+  paintPayNote();
+}
 function totalsHtml() {
-  const sub = getCartSubtotal(), ship = getShipping();
+  const sub = getCartSubtotal(), disc = getDiscount(), ship = getShipping();
   return `<div class="totals">
+    ${promoBoxHtml()}
     <div class="tot-row"><span>${t("subtotalLabel")}</span><span>${sub} ${t("egp")}</span></div>
-    <div class="tot-row"><span>${t("shipLabel")}</span><span>${ship} ${t("egp")}</span></div>
+    ${disc ? `<div class="tot-row tot-disc"><span>${t("discountLabel")}</span><span>− ${disc} ${t("egp")}</span></div>` : ""}
+    <div class="tot-row"><span>${t("shipLabel")}</span><span>${ship ? ship + " " + t("egp") : t("shipFree")}</span></div>
     <div class="tot-note">🚚 ${t("deliveryNote")}</div>
-    <div class="tot-row tot-final"><span>${t("totalLabel")}</span><span>${sub + ship} ${t("egp")}</span></div>
+    <div class="tot-row tot-final"><span>${t("totalLabel")}</span><span>${sub - disc + ship} ${t("egp")}</span></div>
   </div>`;
 }
 function totalsText(l) {
-  return `${tl(l, "subtotalLabel")} ${getCartSubtotal()} ${tl(l, "egp")}\n${tl(l, "shipLabel")} ${getShipping()} ${tl(l, "egp")}\n${tl(l, "deliveryNote")}`;
+  const d = getDiscount(), pr = currentPromo();
+  return `${tl(l, "subtotalLabel")} ${getCartSubtotal()} ${tl(l, "egp")}\n${d ? tl(l, "discountLabel") + " −" + d + " " + tl(l, "egp") + " (" + pr.code + ")\n" : ""}${tl(l, "shipLabel")} ${getShipping()} ${tl(l, "egp")}\n${tl(l, "deliveryNote")}`;
 }
 /* l = لغة النص. للعميل: لغته الحالية — وللإيميل وواتساب بتوصل لصاحب المتجر: دايمًا "ar" */
 function buildOrder(l) {
@@ -2570,10 +2857,13 @@ document.getElementById("checkoutForm").addEventListener("submit", async functio
   const name = customerName.value.trim();
   const phone = customerPhone.value.trim();
   const email = customerEmail.value.trim();
-  const address = customerAddress.value.trim();
+  const govSel = document.getElementById("customerGov").value;
+  const gov = GOVS.find(g => g[0] === govSel);
+  const address = (gov ? gov[1] + " - " : "") + customerAddress.value.trim();
+  const pay = payMethod();
   const notes = customerNotes.value.trim();
   const total = getCartTotal();
-  const orderDetails = getOrderDetailsAr() + "\n" + totalsText("ar");
+  const orderDetails = getOrderDetailsAr() + "\n" + totalsText("ar") + "\n" + tl("ar", "lblPay") + ": " + payName("ar", pay);
   const orderId = "MOON-" + Date.now().toString().slice(-7);
   const orderObj = buildOrderObject(orderId, { name, phone, email, address, notes });
   const invUrl = invoiceLink(orderObj);
@@ -2594,7 +2884,9 @@ document.getElementById("checkoutForm").addEventListener("submit", async functio
     order_date: new Date(orderObj.ts).toLocaleString("ar-EG", { dateStyle: "medium", timeStyle: "short" }),
     invoice_url: invUrl || "—",
     logo_url: logoUrl(),
-    qr_url: qrImgUrl(orderId)
+    qr_url: qrImgUrl(trackText(orderId)),
+    track_url: siteBase() ? siteBase() + "#track=" + encodeURIComponent(orderId) : "—",
+    payment_method: payName("ar", pay)
   };
 
   const waMessage =
@@ -2631,8 +2923,12 @@ ${orderDetails}
   }
 
   /* 2) نفضي السلة ونعرض صفحة النجاح */
+  trk("purchase", { transaction_id: orderId, value: total, currency: "EGP" });
+  dbSetOrder(orderId);
   cart = []; saveCart();
+  lsSet("moonPromo", "");
   e.target.reset();
+  renderGovSelect(); renderPayOpts();
   successState = { emailOk, orderId, err: emailErr };
   lsSet("moonLastInvoice", encodeInvoiceData(orderObj));
   renderMenu();
@@ -2727,7 +3023,10 @@ async function toggleLike() {
 function loadComments() {
   try { const c = JSON.parse(lsGet("moonNewsComments", "[]")); return Array.isArray(c) ? c : []; } catch (e) { return []; }
 }
-let comments = loadComments();
+let comments = DB_ON ? [] : loadComments();
+async function fetchComments() {
+  try { comments = dbList(await dbReq("GET", "comments/news")); renderComments(); } catch (e) { console.warn("fetchComments failed", e); }
+}
 function renderComments() {
   document.getElementById("commentCount").textContent = comments.length;
   document.getElementById("commentCountTop").textContent = comments.length;
@@ -2740,7 +3039,7 @@ function renderComments() {
     <div class="comment">
       <div class="comment-head">
         <strong>${escapeHtml(who)}</strong>
-        <span><small>${escapeHtml(when)}</small> <button class="del" onclick="deleteComment(${Number(c.id)})">${t("remove")}</button></span>
+        <span><small>${escapeHtml(when)}</small> ${DB_ON ? "" : `<button class="del" onclick="deleteComment(${Number(c.id)})">${t("remove")}</button>`}</span>
       </div>
       <p>${escapeHtml(c.text)}</p>
     </div>`;
@@ -2751,15 +3050,23 @@ function deleteComment(id) {
   lsSet("moonNewsComments", JSON.stringify(comments));
   renderComments();
 }
-document.getElementById("commentForm").addEventListener("submit", function (e) {
+document.getElementById("commentForm").addEventListener("submit", async function (e) {
   e.preventDefault();
+  const form = e.target;
   const text = document.getElementById("commentText").value.trim();
   if (!text) return;
   const name = document.getElementById("commentName").value.trim();
+  if (!rateOk()) return;
   const now = Date.now();
-  comments.push({ id: now, name, text, ts: now });
-  lsSet("moonNewsComments", JSON.stringify(comments));
-  e.target.reset();
+  if (DB_ON) {
+    const rec = { text, ts: now }; if (name) rec.name = name;
+    try { const r = await dbReq("POST", "comments/news", rec); comments.push(Object.assign({ id: r.name }, rec)); }
+    catch (err) { toast(t("postFail")); return; }
+  } else {
+    comments.push({ id: now, name, text, ts: now });
+    lsSet("moonNewsComments", JSON.stringify(comments));
+  }
+  form.reset();
   renderComments();
   toast(t("commentPosted"));
   notifyOwner("comment", name || "زائر", "تعليق جديد على صفحة الأخبار:\n" + text);
@@ -2783,9 +3090,42 @@ function shareNews(type) {
 if (navigator.share) document.getElementById("nativeShare").style.display = "inline-block";
 
 /* =====================================================
+   تتبع الطلب (بيشتغل لو Firebase متفعّل)
+   ===================================================== */
+function dbSetOrder(id) {
+  if (!DB_ON) return;
+  dbReq("PUT", "orders/" + id, { status: "new", ts: Date.now() }).catch(err => console.warn("order status not saved", err));
+}
+const ST_STEPS = ["new", "confirmed", "shipped", "delivered"];
+async function trackOrder(idArg) {
+  const inp = document.getElementById("trackInput"), out = document.getElementById("trackResult");
+  const id = String(idArg || inp.value || "").trim().toUpperCase();
+  inp.value = id;
+  const msg = (cls, k) => { out.innerHTML = `<p class="track-msg ${cls}">${t(k)}</p>`; };
+  if (!/^MOON-\d{4,10}$/.test(id)) { msg("track-bad", "trackNone"); return; }
+  if (!DB_ON) {
+    out.innerHTML = `<p class="track-msg">${t("trackOff")}</p><a class="wa-link" href="https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("رقم طلبي: " + id)}" target="_blank" rel="noopener">${t("trackWa")}</a>`;
+    return;
+  }
+  out.innerHTML = `<p class="track-msg">…</p>`;
+  try {
+    const o = await dbReq("GET", "orders/" + id);
+    if (!o || typeof o.status !== "string") { msg("track-bad", "trackNone"); return; }
+    if (o.status === "cancelled") { msg("track-bad", "st_cancelled"); return; }
+    const idx = Math.max(0, ST_STEPS.indexOf(o.status));
+    out.innerHTML = `<p class="track-msg"><b dir="ltr">${escapeHtml(id)}</b></p><ul class="track-steps">` +
+      ST_STEPS.map((s, i) => `<li class="${i <= idx ? "done" : ""}${i === idx ? " now" : ""}">${i <= idx ? "✔ " : "○ "}${t("st_" + s)}</li>`).join("") + `</ul>`;
+  } catch (e) { msg("track-bad", "trackErr"); }
+}
+function openTrackLast() {
+  showView("track");
+  if (successState && successState.orderId) trackOrder(successState.orderId);
+}
+
+/* =====================================================
    القائمة (3 شرايط) — فيها كل الصفحات
    ===================================================== */
-const MENU = [["home","navHome"],["products","navPerfumes"],["him","navHim"],["her","navHer"],["custom","navCustom"],["news","navNews"],["contact","navContact"],["cart","cartLabel"]];
+const MENU = [["home","navHome"],["products","navPerfumes"],["him","navHim"],["her","navHer"],["custom","navCustom"],["news","navNews"],["contact","navContact"],["track","navTrack"],["policies","navPolicies"],["cart","cartLabel"]];
 function renderMenu() {
   const last = lsGet("moonLastInvoice", "") ? `<button type="button" role="menuitem" onclick="openLastInvoice()">${t("invLast")}</button>` : "";
   document.getElementById("menuPanel").innerHTML = MENU.map(([v, k]) =>
@@ -2812,7 +3152,7 @@ document.addEventListener("keydown", e => { if (e.key === "Escape") closeMenu();
 const FAMILIES = ["oriental", "floral", "fresh", "sweet", "woody", "spicy"];
 let customSizeSel = 50, customQtyVal = 1, customFamiliesSel = [];
 function renderCustom() {
-  document.getElementById("customSizePicker").innerHTML = [50, 100].map(sz =>
+  document.getElementById("customSizePicker").innerHTML = CUSTOM_SIZES.map(sz =>
     `<button type="button" class="size-pill${sz === customSizeSel ? " active" : ""}" onclick="setCustomSize(${sz})"><span>${t("size" + sz)}</span><b>${CUSTOM_PRICES[sz]} ${t("egp")}</b></button>`).join("");
   document.getElementById("customChips").innerHTML = FAMILIES.map(f =>
     `<button type="button" class="chip${customFamiliesSel.includes(f) ? " active" : ""}" onclick="toggleFamily('${f}')">${t("fam_" + f)}</button>`).join("");
@@ -2908,13 +3248,13 @@ function buildOrderObject(orderId, c) {
     id: orderId, ts: Date.now(),
     name: c.name, phone: c.phone, email: c.email, address: c.address, notes: c.notes,
     items: cart.map(it => ({ id: it.id, size: it.size, qty: it.quantity, price: unitPrice(it), custom: it.id === "custom" ? it.custom : undefined })),
-    shipping: getShipping()
+    shipping: getShipping(), discount: getDiscount(), promo: (currentPromo() || {}).code || "", pay: payMethod()
   };
 }
 /* الطلب بيتحول لنص صغير جوه الرابط نفسه (مفيش سيرفر) */
 function encodeInvoiceData(o) {
   return b64uEnc(JSON.stringify({
-    i: o.id, t: o.ts, n: o.name, p: o.phone, e: o.email, a: o.address, o: o.notes, s: o.shipping,
+    i: o.id, t: o.ts, n: o.name, p: o.phone, e: o.email, a: o.address, o: o.notes, s: o.shipping, d: o.discount || 0, c: o.promo || "", y: o.pay || "",
     it: o.items.map(x => x.custom
       ? [x.id, x.size, x.qty, x.price, { t: x.custom.target, f: x.custom.families, d: String(x.custom.details).slice(0, 300), l: x.custom.label }]
       : [x.id, x.size, x.qty, x.price])
@@ -2925,6 +3265,11 @@ function invoiceLink(o) {
   return base ? base + "#inv=" + encodeInvoiceData(o) : "";
 }
 function logoUrl() { const b = siteBase(); return b ? b.replace(/[^\/]*$/, "") + "images/logo.png" : ""; }
+/* اللي بيتحط جوه الـ QR: رابط تتبع الطلب (لو الموقع منشور) أو رابط واتساب برقم الطلب — مفيش بيانات شخصية */
+function trackText(id) {
+  const b = siteBase();
+  return b ? b + "#track=" + encodeURIComponent(id) : "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent("رقم طلبي: " + id);
+}
 function qrImgUrl(orderId) { return "https://api.qrserver.com/v1/create-qr-code/?size=160x160&margin=0&data=" + encodeURIComponent(orderId); }
 
 function parseInvoice(b64) {
@@ -2934,7 +3279,7 @@ function parseInvoice(b64) {
     if (!c || typeof c.i !== "string" || !/^[\w-]{1,30}$/.test(c.i) || !Array.isArray(c.it) || !c.it.length || c.it.length > 50) return null;
     const items = c.it.map(x => {
       if (!Array.isArray(x)) return null;
-      const size = Number(x[1]) === 100 ? 100 : 50;
+      const size = [10, 50, 100].includes(Number(x[1])) ? Number(x[1]) : 50;
       const qty = Math.round(Number(x[2])), price = Number(x[3]);
       if (!(qty >= 1 && qty <= 999) || !(price >= 0 && price <= 100000)) return null;
       const it = { id: str(x[0], 20), size, qty, price };
@@ -2950,7 +3295,8 @@ function parseInvoice(b64) {
     }).filter(Boolean);
     if (!items.length) return null;
     const ship = Number(c.s);
-    return { id: c.i, ts: Number(c.t) || Date.now(), name: str(c.n, 80), phone: str(c.p, 30), email: str(c.e, 80), address: str(c.a, 400), notes: str(c.o, 600), items, shipping: ship >= 0 && ship <= 10000 ? ship : SHIPPING_FEE };
+    return { id: c.i, ts: Number(c.t) || Date.now(), name: str(c.n, 80), phone: str(c.p, 30), email: str(c.e, 80), address: str(c.a, 400), notes: str(c.o, 600), items, shipping: ship >= 0 && ship <= 10000 ? ship : SHIPPING_FEE,
+      discount: (Number(c.d) >= 0 && Number(c.d) <= 100000) ? Number(c.d) : 0, promo: str(c.c, 20), pay: ["cod", "insta", "vf"].includes(c.y) ? c.y : "" };
   } catch (e) { return null; }
 }
 
@@ -2976,7 +3322,8 @@ function renderInvoice() {
     subtotal += line;
     return `<tr><td>${e(name)} · ${e(tl(l, "size" + it.size))}${sub}</td><td class="num">${it.qty}</td><td class="num col-unit">${it.price}</td><td class="num">${line}</td></tr>`;
   }).join("");
-  const total = subtotal + o.shipping;
+  const disc = o.discount || 0;
+  const total = subtotal - disc + o.shipping;
   const field = (k, v) => v ? `<div><b>${e(tl(l, k))}:</b> ${e(v)}</div>` : "";
   el.innerHTML = `
     <div class="inv-head">
@@ -2988,6 +3335,7 @@ function renderInvoice() {
     <div class="inv-meta">
       <div><b>${e(tl(l, "invNo"))}:</b> <span dir="ltr">${e(o.id)}</span></div>
       <div><b>${e(tl(l, "invDate"))}:</b> ${e(when)}</div>
+      ${o.pay ? `<div><b>${e(tl(l, "lblPay"))}:</b> ${e(payName(l, o.pay))}</div>` : ""}
     </div>
     <div class="inv-box">
       <h4>${e(tl(l, "invCustomer"))}</h4>
@@ -2999,12 +3347,13 @@ function renderInvoice() {
     </table>
     <div class="inv-totals">
       <div><span>${e(tl(l, "subtotalLabel"))}</span><span>${subtotal} ${e(egp)}</span></div>
+      ${disc ? `<div><span>${e(tl(l, "discountLabel"))}${o.promo ? " (" + e(o.promo) + ")" : ""}</span><span>− ${disc} ${e(egp)}</span></div>` : ""}
       <div><span>${e(tl(l, "shipLabel"))}</span><span>${o.shipping} ${e(egp)}</span></div>
       <div class="final"><span>${e(tl(l, "totalLabel"))}</span><span>${total} ${e(egp)}</span></div>
     </div>
     <div class="inv-note">🚚 ${e(tl(l, "deliveryNote"))}</div>
     <div class="inv-foot">
-      <div class="inv-qr">${qrSvg(o.id)}</div>
+      <div class="inv-qr">${qrSvg(trackText(o.id))}</div>
       <div class="oid" dir="ltr">${e(o.id)}</div>
       <div class="cap">${e(tl(l, "invScan"))}</div>
       <div>${e(tl(l, "invThanks"))}</div>
@@ -3039,6 +3388,7 @@ function openLastInvoice() {
 window.addEventListener("hashchange", () => {
   const h = location.hash.slice(1);
   if (h.startsWith("inv=")) { const o = parseInvoice(h.slice(4)); if (o) openInvoice(o, "ar"); }
+  else if (h.startsWith("track=")) { showView("track"); trackOrder(decodeURIComponent(h.slice(6))); }
 });
 
 /* =====================================================
@@ -3062,6 +3412,8 @@ function applyLang() {
   renderSuccess();
   renderMenu();
   renderCustom();
+  renderGovSelect();
+  renderPayOpts();
   paintLike();
   paintVisits();
   if (currentView === "cart") renderCart();
@@ -3111,16 +3463,31 @@ function findSheet(i) {
   im.src = SHEET_TRY[i];
 }
 findSheet(0);
+const IMG_EXTS = ["jpg", "png", "webp", "jpeg"];
+function probeImg(base, k, done) {
+  if (k >= IMG_EXTS.length) return done(null);
+  const u = base + "." + IMG_EXTS[k], im = new Image();
+  im.onload = () => done(u);
+  im.onerror = () => probeImg(base, k + 1, done);
+  im.src = u;
+}
+/* صورة لكل عطر: images/oud.jpg (والصور الإضافية oud-2.jpg و oud-3.jpg ...) */
 products.forEach(p => {
-  const im = new Image();
-  im.onload = () => { own[p.id] = true; renderProducts(); };
-  im.src = p.image;
+  probeImg("images/" + p.id, 0, u => {
+    if (!u) return;
+    p.image = u; p.imgs = [u]; own[p.id] = true; renderProducts();
+    if (currentView === "details" && currentProductId === p.id) renderDetails(p.id);
+    [2, 3, 4].reduce((chain, n) => chain.then(() => new Promise(res => probeImg("images/" + p.id + "-" + n, 0, g => { if (g) p.imgs.push(g); res(); }))), Promise.resolve())
+      .then(() => { if (p.imgs.length > 1 && currentView === "details" && currentProductId === p.id) renderDetails(p.id); });
+  });
 });
 
 initLikes();
 initVisits();
+if (DB_ON) fetchComments();
 const hv = location.hash.slice(1);
 if (hv.startsWith("inv=")) { const io = parseInvoice(hv.slice(4)); if (io) openInvoice(io, "ar"); }
+else if (hv.startsWith("track=")) { showView("track"); trackOrder(decodeURIComponent(hv.slice(6))); }
 else if (SHAREABLE.includes(hv)) showView(hv);
 else if (hv.startsWith("p-") && products.some(x => "p-" + x.id === hv)) openProduct(hv.slice(2));
 </script>
