@@ -2268,8 +2268,8 @@ function pt(p, field) { return (p.tr[lang] && p.tr[lang][field]) || p.tr.en[fiel
 
 /* الأسعار (بالجنيه) — غيّرها من هنا */
 const SHIPPING_FEE = 100;                      /* الشحن (جنيه) — بيتضاف على أي طلب */
-const PRICES = { 10: 150, 50: 500, 100: 900 }; /* العطور الجاهزة (10 مل = عينة) */
-const SIZES = [10, 50, 100];
+const PRICES = { 50: 500, 100: 900 };          /* العطور الجاهزة */
+const SIZES = [50, 100];
 const CUSTOM_SIZES = [50, 100];
 const CUSTOM_PRICES = { 50: 500, 100: 900 };   /* التركيب حسب الطلب */
 
@@ -2331,8 +2331,12 @@ function dbList(obj) {
 function rateOk() {
   const last = Number(lsGet("moonLastPost", "0")) || 0;
   if (Date.now() - last < 15000) { toast(t("postWait")); return false; }
-  lsSet("moonLastPost", Date.now());
   return true;
+}
+function markPosted() { lsSet("moonLastPost", Date.now()); }
+function postFailToast(err) {
+  console.error("post failed:", err);
+  toast(t("postFail") + " (" + String((err && err.message) || err).slice(0, 40) + ")", 6000);
 }
 
 /* روابط السوشيال — غيّرها بروابط صفحاتك الحقيقية */
@@ -2347,12 +2351,12 @@ let emailReady = false;
 try { emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY }); emailReady = true; } catch (e) { console.error("EmailJS init failed", e); }
 
 /* ========= أدوات ========= */
-function toast(msg) {
+function toast(msg, ms) {
   const el = document.getElementById("toast");
   el.textContent = msg;
   el.classList.add("show");
   clearTimeout(toast._t);
-  toast._t = setTimeout(() => el.classList.remove("show"), 2200);
+  toast._t = setTimeout(() => el.classList.remove("show"), ms || 2200);
 }
 function withTimeout(promise, ms) {
   return Promise.race([promise, new Promise((_, rej) => setTimeout(() => rej(new Error("timeout")), ms))]);
@@ -2628,12 +2632,13 @@ async function postReview(e, id) {
     try {
       const r = await dbReq("POST", "reviews/" + id, rec);
       (sharedReviews[id] = sharedReviews[id] || []).push(Object.assign({ id: r.name }, rec));
-    } catch (err) { toast(t("postFail")); return false; }
+    } catch (err) { postFailToast(err); return false; }
   } else {
     const rs = loadReviews(id);
     rs.push({ id: now, name, rating: ratingSel, text, ts: now });
     saveReviews(id, rs);
   }
+  markPosted();
   notifyOwner("review", name || "زائر", `تقييم جديد لعطر ${p.name} - ${p.arabicName}: ${starsStatic(ratingSel)}\n${text}`);
   ratingSel = 0;
   renderDetails(id);
@@ -2866,7 +2871,8 @@ document.getElementById("checkoutForm").addEventListener("submit", async functio
   const orderDetails = getOrderDetailsAr() + "\n" + totalsText("ar") + "\n" + tl("ar", "lblPay") + ": " + payName("ar", pay);
   const orderId = "MOON-" + Date.now().toString().slice(-7);
   const orderObj = buildOrderObject(orderId, { name, phone, email, address, notes });
-  const invUrl = invoiceLink(orderObj);
+  { const sb = document.getElementById("submitBtn"); sb.disabled = true; sb.textContent = t("sending"); }
+  const invUrl = await shortInvoiceLink(orderObj);
 
   const emailData = {
     order_id: orderId,
@@ -3061,11 +3067,12 @@ document.getElementById("commentForm").addEventListener("submit", async function
   if (DB_ON) {
     const rec = { text, ts: now }; if (name) rec.name = name;
     try { const r = await dbReq("POST", "comments/news", rec); comments.push(Object.assign({ id: r.name }, rec)); }
-    catch (err) { toast(t("postFail")); return; }
+    catch (err) { postFailToast(err); return; }
   } else {
     comments.push({ id: now, name, text, ts: now });
     lsSet("moonNewsComments", JSON.stringify(comments));
   }
+  markPosted();
   form.reset();
   renderComments();
   toast(t("commentPosted"));
@@ -3264,6 +3271,32 @@ function invoiceLink(o) {
   const base = siteBase();
   return base ? base + "#inv=" + encodeInvoiceData(o) : "";
 }
+function randToken(n) {
+  const a = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789", u = new Uint8Array(n);
+  crypto.getRandomValues(u);
+  return Array.from(u, x => a[x % a.length]).join("");
+}
+/* رابط قصير: الفاتورة بتتحفظ في Firebase بكود عشوائي سري، والرابط بيبقى  ...#i=كود  . لو Firebase مش شغال بيرجع للرابط الطويل */
+async function shortInvoiceLink(o) {
+  const base = siteBase();
+  if (!base) return "";
+  if (DB_ON) {
+    try {
+      const tok = randToken(14);
+      await dbReq("PUT", "invoices/" + tok, { d: encodeInvoiceData(o), ts: Date.now() });
+      return base + "#i=" + tok;
+    } catch (e) { console.warn("short invoice link failed, using long link", e); }
+  }
+  return invoiceLink(o);
+}
+async function openInvoiceByToken(tok) {
+  if (!DB_ON || !/^[A-Za-z0-9]{10,24}$/.test(tok)) return;
+  try {
+    const r = await dbReq("GET", "invoices/" + tok);
+    const o = r && typeof r.d === "string" ? parseInvoice(r.d) : null;
+    if (o) openInvoice(o, "ar"); else toast(t("trackNone"));
+  } catch (e) { toast(t("trackErr")); }
+}
 function logoUrl() { const b = siteBase(); return b ? b.replace(/[^\/]*$/, "") + "images/logo.png" : ""; }
 /* اللي بيتحط جوه الـ QR: رابط تتبع الطلب (لو الموقع منشور) أو رابط واتساب برقم الطلب — مفيش بيانات شخصية */
 function trackText(id) {
@@ -3279,7 +3312,7 @@ function parseInvoice(b64) {
     if (!c || typeof c.i !== "string" || !/^[\w-]{1,30}$/.test(c.i) || !Array.isArray(c.it) || !c.it.length || c.it.length > 50) return null;
     const items = c.it.map(x => {
       if (!Array.isArray(x)) return null;
-      const size = [10, 50, 100].includes(Number(x[1])) ? Number(x[1]) : 50;
+      const size = [50, 100].includes(Number(x[1])) ? Number(x[1]) : 50;
       const qty = Math.round(Number(x[2])), price = Number(x[3]);
       if (!(qty >= 1 && qty <= 999) || !(price >= 0 && price <= 100000)) return null;
       const it = { id: str(x[0], 20), size, qty, price };
@@ -3388,6 +3421,7 @@ function openLastInvoice() {
 window.addEventListener("hashchange", () => {
   const h = location.hash.slice(1);
   if (h.startsWith("inv=")) { const o = parseInvoice(h.slice(4)); if (o) openInvoice(o, "ar"); }
+  else if (h.startsWith("i=")) openInvoiceByToken(h.slice(2));
   else if (h.startsWith("track=")) { showView("track"); trackOrder(decodeURIComponent(h.slice(6))); }
 });
 
@@ -3487,6 +3521,7 @@ initVisits();
 if (DB_ON) fetchComments();
 const hv = location.hash.slice(1);
 if (hv.startsWith("inv=")) { const io = parseInvoice(hv.slice(4)); if (io) openInvoice(io, "ar"); }
+else if (hv.startsWith("i=")) openInvoiceByToken(hv.slice(2));
 else if (hv.startsWith("track=")) { showView("track"); trackOrder(decodeURIComponent(hv.slice(6))); }
 else if (SHAREABLE.includes(hv)) showView(hv);
 else if (hv.startsWith("p-") && products.some(x => "p-" + x.id === hv)) openProduct(hv.slice(2));
