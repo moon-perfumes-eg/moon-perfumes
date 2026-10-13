@@ -2219,6 +2219,13 @@ K("pol4P", "لو وصلك منتج تالف أو مختلف عن طلبك، تو
 K("pol5T", "الخصوصية", "Privacy", "Confidentialité", "Privacidad");
 K("pol5P", "نستخدم بياناتك (الاسم والهاتف والبريد والعنوان) فقط لتجهيز طلبك والتواصل معك بشأنه، ولا نبيعها لأي جهة. التقييمات والتعليقات التي تنشرها تظهر لجميع الزوار.", "We use your details (name, phone, email, address) only to prepare your order and contact you about it, and never sell them. Reviews and comments you post are visible to all visitors.", "Nous utilisons vos données (nom, téléphone, e-mail, adresse) uniquement pour traiter votre commande et vous contacter, et ne les vendons jamais. Les avis et commentaires publiés sont visibles par tous.", "Usamos tus datos (nombre, teléfono, correo, dirección) solo para preparar tu pedido y contactarte, y nunca los vendemos. Las opiniones y comentarios que publiques son visibles para todos.");
 
+K("payOrange", "أورنج كاش", "Orange Cash", "Orange Cash", "Orange Cash");
+K("payEtisalat", "اتصالات كاش", "Etisalat Cash", "Etisalat Cash", "Etisalat Cash");
+K("payWe", "WE Pay", "WE Pay", "WE Pay", "WE Pay");
+K("payCard", "بطاقة (فيزا / ماستركارد)", "Card (Visa / Mastercard)", "Carte (Visa / Mastercard)", "Tarjeta (Visa / Mastercard)");
+K("payWalletNote", "حوّل الإجمالي على {name}: {num}\nثم ابعت صورة التحويل على واتساب مع رقم الطلب.", "Transfer the total via {name}: {num}\nThen send the transfer screenshot on WhatsApp with your order number.", "Virez le total via {name} : {num}\nPuis envoyez la capture sur WhatsApp avec votre numéro de commande.", "Transfiere el total por {name}: {num}\nLuego envía la captura por WhatsApp con tu número de pedido.");
+K("payCardNote", "هنبعتلك رابط دفع آمن على واتساب بعد استلام الطلب لإتمام الدفع بالبطاقة.\nمتكتبش بيانات بطاقتك في أي مكان غير صفحة الدفع الرسمية.", "We will send you a secure payment link on WhatsApp after receiving your order to pay by card.\nNever enter your card details anywhere except the official payment page.", "Nous vous enverrons un lien de paiement sécurisé sur WhatsApp après réception de la commande.\nNe saisissez jamais vos données de carte ailleurs que sur la page de paiement officielle.", "Te enviaremos un enlace de pago seguro por WhatsApp tras recibir el pedido.\nNo introduzcas los datos de tu tarjeta fuera de la página oficial de pago.");
+
 /* الإنجليزي هو البديل لو ترجمة ناقصة */
 let lang = "ar";
 function tl(l, key, vars) {
@@ -2288,7 +2295,11 @@ const FIREBASE_DB_URL = "https://moon-perfumes-default-rtdb.europe-west1.firebas
 const GA4_ID = "";            /* مثال: "G-XXXXXXXXXX" (Google Analytics) */
 const META_PIXEL_ID = "";     /* رقم Meta Pixel بتاع فيسبوك/انستجرام */
 const PAY_INSTAPAY = "";      /* رقم/عنوان إنستاباي بتاعك. لو فاضي الخيار مش بيظهر */
-const PAY_VFCASH = "";        /* رقم فودافون كاش بتاعك. لو فاضي الخيار مش بيظهر */
+const PAY_VFCASH = "01019631902";        /* رقم فودافون كاش بتاعك. لو فاضي الخيار مش بيظهر */
+const PAY_ORANGE = "";        /* رقم أورنج كاش (اختياري) */
+const PAY_ETISALAT = "";      /* رقم اتصالات كاش (اختياري) */
+const PAY_WE = "";            /* رقم WE Pay (اختياري) */
+const PAY_CARD = false;       /* true = خيار الدفع بالبطاقة: بتبعت للعميل رابط دفع آمن من شركة الدفع بتاعتك على واتساب */
 const FREE_SHIPPING_OVER = 0; /* شحن مجاني لو قيمة الطلب (بعد الخصم) وصلت للرقم ده. 0 = مقفول */
 const DISCOUNTS = {};         /* أكواد الخصم: مثال { "MOON10": 10, "WELCOME": 15 } = الكود: نسبة الخصم %. فاضي = مفيش خانة خصم */
 const SHIP_FEES = {};         /* رسوم شحن مخصصة لمحافظة: مثال { cairo: 60, giza: 60, alex: 80 } — الباقي = SHIPPING_FEE */
@@ -2785,15 +2796,21 @@ function payOptions() {
   const a = [["cod", "payCod"]];
   if (PAY_INSTAPAY) a.push(["insta", "payInsta"]);
   if (PAY_VFCASH) a.push(["vf", "payVf"]);
+  if (PAY_ORANGE) a.push(["orange", "payOrange"]);
+  if (PAY_ETISALAT) a.push(["etisalat", "payEtisalat"]);
+  if (PAY_WE) a.push(["we", "payWe"]);
+  if (PAY_CARD) a.push(["card", "payCard"]);
   return a;
 }
 function payMethod() { const r = document.querySelector('input[name="payMethod"]:checked'); return r ? r.value : "cod"; }
-function payName(l, code) { return tl(l, code === "insta" ? "payInsta" : code === "vf" ? "payVf" : "payCod"); }
+const PAY_KEYS = { cod: "payCod", insta: "payInsta", vf: "payVf", orange: "payOrange", etisalat: "payEtisalat", we: "payWe", card: "payCard" };
+function payName(l, code) { return tl(l, PAY_KEYS[code] || "payCod"); }
 function paintPayNote() {
   const n = document.getElementById("payNote"); if (!n) return;
   const m = payMethod();
   n.style.display = m === "cod" ? "none" : "block";
-  n.textContent = m === "insta" ? t("payInstaNote", { num: PAY_INSTAPAY }) : m === "vf" ? t("payVfNote", { num: PAY_VFCASH }) : "";
+  const nums = { insta: PAY_INSTAPAY, vf: PAY_VFCASH, orange: PAY_ORANGE, etisalat: PAY_ETISALAT, we: PAY_WE };
+  n.textContent = m === "card" ? t("payCardNote") : nums[m] ? t("payWalletNote", { name: payName(lang, m), num: nums[m] }) : "";
 }
 function renderPayOpts() {
   const box = document.getElementById("payBox"); if (!box) return;
@@ -3329,7 +3346,7 @@ function parseInvoice(b64) {
     if (!items.length) return null;
     const ship = Number(c.s);
     return { id: c.i, ts: Number(c.t) || Date.now(), name: str(c.n, 80), phone: str(c.p, 30), email: str(c.e, 80), address: str(c.a, 400), notes: str(c.o, 600), items, shipping: ship >= 0 && ship <= 10000 ? ship : SHIPPING_FEE,
-      discount: (Number(c.d) >= 0 && Number(c.d) <= 100000) ? Number(c.d) : 0, promo: str(c.c, 20), pay: ["cod", "insta", "vf"].includes(c.y) ? c.y : "" };
+      discount: (Number(c.d) >= 0 && Number(c.d) <= 100000) ? Number(c.d) : 0, promo: str(c.c, 20), pay: ["cod", "insta", "vf", "orange", "etisalat", "we", "card"].includes(c.y) ? c.y : "" };
   } catch (e) { return null; }
 }
 
